@@ -20,16 +20,8 @@ const config = {
   userTwitter: 'stevenlavinske',
   menuLinks: [
     {
-      name: 'About',
-      link: '/me/',
-    },
-    {
       name: 'Articles',
       link: '/blog/',
-    },
-    {
-      name: 'Contact',
-      link: '/contact/',
     },
   ],
   themeColor: '#3F80FF', // Used for setting manifest and progress theme colors.

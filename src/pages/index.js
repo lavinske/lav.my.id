@@ -28,11 +28,11 @@ export default class Index extends Component {
             <div className="elevator">
               <h1>{`Hey, I'm Maxine`} </h1>
               <p>
-                {`I'm an university student from Bandung, creating`}
+                {`I'm an university student from Bandung, creating `}
                 <a href="https://github.com/lavinske" target="_blank" rel="noopener noreferrer">
                   open source
                 </a>{' '}
-                projects and <Link to="/blog">writing</Link>{`about modern web development, `}<a href="https://hackthebox.eu" target="_blank" rel="noopener noreferrer">
+                projects and <Link to="/blog">writing</Link>{` about modern web development, `}<a href="https://hackthebox.eu" target="_blank" rel="noopener noreferrer">
                   HackTheBox writeup
                 </a>{' '}and my other daily project or skills improvement.
               </p>

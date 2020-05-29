@@ -10,7 +10,7 @@ export default class Footer extends Component {
       <footer className="footer container">
         <div>
           <Link to="/contact/">Contact</Link>
-          <a href="https://www.taniarascia.com/rss.xml" target="_blank" rel="noopener noreferrer">
+          <a href="/rss.xml" target="_blank" rel="noopener noreferrer">
             RSS
           </a>
         </div>
