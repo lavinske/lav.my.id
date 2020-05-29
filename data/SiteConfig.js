@@ -6,8 +6,8 @@ const config = {
   siteUrl: 'https://www.lav.my.id',
   repo: 'https://github.com/lavinske/lav.my.id',
   pathPrefix: '',
-  dateFromFormat: 'DD-MM-YYYY',
-  dateFormat: 'DD MMM YYYY',
+  dateFromFormat: 'dd MM YYYY',
+  dateFormat: 'dddd, Do MMMM YYYY',
   siteDescription:
     'Steven Lavinske is an university student, focusing to learn modern web development.',
   siteRss: '/rss.xml',
