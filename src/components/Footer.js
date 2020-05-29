@@ -21,7 +21,7 @@ export default class Footer extends Component {
         <div>
           <a href="https://instagram.com/lavinske" title="View my Instagram" target="_blank" rel="noopener noreferrer">
             <img
-              src={github}
+              src={instagram}
               className="footer-img"
               alt="Instagram"
             />
