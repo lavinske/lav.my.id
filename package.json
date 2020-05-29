@@ -1,9 +1,9 @@
 {
-  "name": "taniarascia.com",
+  "name": "lav.my.id",
   "description": "Personal website running on Gatsby, React, and Node.js.",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "author": "Tania Rascia",
-  "repository": "git@github.com:taniarascia/taniarascia.com",
+  "repository": "git@github.com:lavinske/lav.my.id",
   "dependencies": {
     "eslint-utils": "^1.4.1",
     "gatsby": "^2.13.13",
