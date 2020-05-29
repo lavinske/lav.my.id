@@ -9,9 +9,12 @@ export default class Footer extends Component {
     return (
       <footer className="footer container">
         <div>
-          <Link to="/contact/">Contact</Link>
+          <Link to="/blog/">Blog</Link>
           <a href="/rss.xml" target="_blank" rel="noopener noreferrer">
             RSS
+          </a>
+          <a href="https://blog.bankcentral.asia" target="_blank" rel="noopener noreferrer">
+            Collaborative Blog
           </a>
         </div>
         <div>
