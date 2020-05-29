@@ -42,7 +42,7 @@ export default class Index extends Component {
                   data-size="large"
                   data-show-count="true"
                 >
-                  taniarascia
+                  lavinske
                 </GitHubButton>
               </div>
             </div>
