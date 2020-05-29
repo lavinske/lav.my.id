@@ -32,7 +32,7 @@ export default class Index extends Component {
                 <a href="https://github.com/lavinske" target="_blank" rel="noopener noreferrer">
                   open source
                 </a>{' '}
-                dan <Link to="/blog">nulis</Link>{` tentang development web di era modern, juga suka nulis writeup machine`}<a href="https://hackthebox.eu" target="_blank" rel="noopener noreferrer">
+                dan <Link to="/blog">nulis</Link>{` tentang development web di era modern, juga suka nulis writeup machinenya `}<a href="https://hackthebox.eu" target="_blank" rel="noopener noreferrer">
                   HackTheBox
                 </a>{' '}dan mungkin apa yang ku pelajari sekarang sih.
               </p>
@@ -71,7 +71,7 @@ export default class Index extends Component {
           </section>
 
           <section className="section">
-            <h2>Proyect Open Source</h2>
+            <h2>Project Open Source</h2>
             <ProjectListing projects={projects} />
           </section>
 
