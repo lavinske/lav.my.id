@@ -8,7 +8,7 @@ import PostTags from '../components/PostTags'
 import SEO from '../components/SEO'
 import config from '../../data/SiteConfig'
 import { formatDate, editOnGithub } from '../utils/global'
-import tania from '../../content/images/maxine.jpg'
+import maxine from '../../content/images/maxine.jpg'
 
 export default class PostTemplate extends Component {
   render() {
@@ -47,7 +47,7 @@ export default class PostTemplate extends Component {
               <h1>{post.title}</h1>
               <div className="post-meta">
                 <Link to="/me">
-                  <img src={tania} className="avatar-small" alt="Tania" />
+                  <img src={maxine} className="avatar-small" alt="Maxine" />
                 </Link>
                 <time className="date">{date}</time>/
                 <a
@@ -56,7 +56,7 @@ export default class PostTemplate extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Share
+                  Bagikan
                 </a>
               </div>
               <PostTags tags={post.tags} />
