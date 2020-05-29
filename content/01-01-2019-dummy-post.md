@@ -11,6 +11,8 @@ tags: ["graphql", "book"]
 
 # Quanto et ius coniunctis urbes
 
+![Kontol](./thumbnails/floppy.png)
+
 ## Sedisti civiliter
 
 Lorem **markdownum** Ixione palus **semper peritura barbaque** in aureus
