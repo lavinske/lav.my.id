@@ -10,7 +10,7 @@ module.exports = {
       feed_url: urljoin(config.siteUrl, config.pathPrefix, config.siteRss),
       title: config.siteTitle,
       description: config.siteDescription,
-      image_url: `${urljoin(config.siteUrl, config.pathPrefix)}/logos/logo-48.png`,
+      image_url: `${urljoin(config.siteUrl, config.pathPrefix)}/logos/hd_smol.png`,
     },
   },
   plugins: [
@@ -91,13 +91,13 @@ module.exports = {
         display: 'minimal-ui',
         icons: [
           {
-            src: '/logos/logo-48.png',
-            sizes: '48x48',
+            src: '/logos/hd_smol.png',
+            sizes: '32x32',
             type: 'image/png',
           },
           {
-            src: '/logos/logo-1024.png',
-            sizes: '1024x1024',
+            src: '/logos/hd.png',
+            sizes: '800x800',
             type: 'image/png',
           },
         ],
@@ -109,7 +109,7 @@ module.exports = {
         setup(ref) {
           const ret = ref.query.site.siteMetadata.rssMetadata
           ret.allMarkdownRemark = ref.query.allMarkdownRemark
-          ret.generator = 'Tania Rascia'
+          ret.generator = 'Steven Lavinske'
           return ret
         },
         query: `
@@ -173,7 +173,7 @@ module.exports = {
             }
           `,
             output: config.siteRss,
-            title: 'Tania Rascia - RSS Feed',
+            title: 'Steven Lavinske - RSS Feed',
           },
         ],
       },

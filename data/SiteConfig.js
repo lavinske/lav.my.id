@@ -9,7 +9,7 @@ const config = {
   dateFromFormat: 'dd MM YYYY',
   dateFormat: 'dddd, Do MMMM YYYY',
   siteDescription:
-    'Steven Lavinske is an university student, focusing to learn modern web development.',
+    'Steven Lavinske adalah seorang anak kuliahan biasa.',
   siteRss: '/rss.xml',
   googleAnalyticsID: 'UA-42068444-1',
   postDefaultCategoryID: 'Tech',
@@ -20,11 +20,11 @@ const config = {
   userTwitter: 'stevenlavinske',
   menuLinks: [
     {
-      name: 'Articles',
+      name: 'Artikel',
       link: '/blog/',
     },
   ],
-  themeColor: '#3F80FF', // Used for setting manifest and progress theme colors.
+  themeColor: '#0094d6', // Used for setting manifest and progress theme colors.
   backgroundColor: '#ffffff',
 }
 

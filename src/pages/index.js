@@ -28,13 +28,13 @@ export default class Index extends Component {
             <div className="elevator">
               <h1>{`Hey, I'm Maxine`} </h1>
               <p>
-                {`I'm an university student from Bandung, creating `}
+                {`Anak kuliahan dari Bandung, demen bikin project `}
                 <a href="https://github.com/lavinske" target="_blank" rel="noopener noreferrer">
                   open source
                 </a>{' '}
-                projects and <Link to="/blog">writing</Link>{` about modern web development, `}<a href="https://hackthebox.eu" target="_blank" rel="noopener noreferrer">
-                  HackTheBox writeup
-                </a>{' '}and my other daily project or skills improvement.
+                dan <Link to="/blog">nulis</Link>{` tentang development web di era modern, juga suka nulis writeup machine`}<a href="https://hackthebox.eu" target="_blank" rel="noopener noreferrer">
+                  HackTheBox
+                </a>{' '}dan mungkin apa yang ku pelajari sekarang sih.
               </p>
               <div className="social-buttons">
                 <GitHubButton
@@ -52,9 +52,9 @@ export default class Index extends Component {
         <div className="container front-page">
           <section className="section">
             <h2>
-              Latest Articles
+              Tulisan Terbaru
               <Link to="/blog" className="view-all">
-                View all
+                Lihat Semua
               </Link>
             </h2>
             <PostListing simple postEdges={latestPostEdges} />
@@ -62,21 +62,21 @@ export default class Index extends Component {
 
           <section className="section">
             <h2>
-              Most Popular
+              Tulisan Terpopuler
               <Link to="/categories/popular" className="view-all">
-                View all
+                Lihat Semua
               </Link>
             </h2>
             <PostListing simple postEdges={popularPostEdges} />
           </section>
 
           <section className="section">
-            <h2>Open Source Projects</h2>
+            <h2>Proyect Open Source</h2>
             <ProjectListing projects={projects} />
           </section>
 
           <section className="section">
-            <h2>Certifications and Training</h2>
+            <h2>Pelatihan dan Sertifikasi</h2>
             <SimpleListing simple data={training} />
           </section>
 

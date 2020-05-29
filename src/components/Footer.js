@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import netlify from '../../content/images/netlify.png'
 import gatsby from '../../content/thumbnails/gatsby.png'
 import github from '../../content/images/github.png'
+import instagram from '../../content/images/instagram.png'
 
 export default class Footer extends Component {
   render() {
@@ -14,10 +15,17 @@ export default class Footer extends Component {
             RSS
           </a>
           <a href="https://blog.bankcentral.asia" target="_blank" rel="noopener noreferrer">
-            Collaborative Blog
+            Blog Kolaboratif
           </a>
         </div>
         <div>
+          <a href="https://instagram.com/lavinske" title="View my Instagram" target="_blank" rel="noopener noreferrer">
+            <img
+              src={github}
+              className="footer-img"
+              alt="Instagram"
+            />
+          </a>
           <a href="https://github.com/lavinske" title="Open-source on GitHub" target="_blank" rel="noopener noreferrer">
             <img
               src={github}
