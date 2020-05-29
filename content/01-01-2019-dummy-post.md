@@ -1,14 +1,14 @@
 ---
-slug: "dummy-post"
-title: "Bold Mage"
-date: "2019-09-09"
-thumbnail: "thumbnails/floppy.png"
+slug: dummy-post
+title: Bold Mage
+date: 2019-09-09
+thumbnail: floppy.png
 template: post
 categories:
-    - "HTB - Writeups"
+    - HTB - Writeups
 tags:
-    - "Admirer"
-    - "HTB"
+    - Admirer
+    - HTB
 ---
 
 # Quanto et ius coniunctis urbes
