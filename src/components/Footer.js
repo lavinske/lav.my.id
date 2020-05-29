@@ -8,8 +8,9 @@ export default class Footer extends Component {
   render() {
     return (
       <footer className="footer container">
+        <div>
           <Link to="/contact/">Contact</Link>
-          <a href="https://www.lav.my.id/rss.xml" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.taniarascia.com/rss.xml" target="_blank" rel="noopener noreferrer">
             RSS
           </a>
         </div>
