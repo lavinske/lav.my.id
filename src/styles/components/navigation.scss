@@ -1,6 +1,5 @@
 .nav {
   position: fixed;
-  width: 100%;
   top: 0;
   left: 0;
   z-index: 3;
@@ -114,7 +113,7 @@ button.dark-switcher {
     }
 
     .nav-container {
-      height: 160px;
+      height: 120px;
       padding: 0 2rem;
     }
 
