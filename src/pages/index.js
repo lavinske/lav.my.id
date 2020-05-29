@@ -12,7 +12,7 @@ import projects from '../../data/projects'
 import speaking from '../../data/speaking'
 import podcasts from '../../data/podcasts'
 import quotes from '../../data/quotes'
-import tania from '../../content/images/maxine.jpg'
+import maxine from '../../content/images/maxine.jpg'
 
 export default class Index extends Component {
   render() {
@@ -23,23 +23,24 @@ export default class Index extends Component {
 
     return (
       <Layout>
-        <Helmet title={`${config.siteTitle} – Full Stack Software Developer`} />
+        <Helmet title={`${config.siteTitle} – Catatan Harian`} />
         <SEO />
         <div className="container">
           <div className="lead">
             <div className="elevator">
               <h1>{`Hey, I'm Maxine`} </h1>
               <p>
-                {`I'm a full stack software developer creating `}
+                {`I'm an university student from Bandung, creating`}
                 <a href="https://github.com/lavinske" target="_blank" rel="noopener noreferrer">
                   open source
                 </a>{' '}
-                projects and <Link to="/blog">writing</Link> about modern JavaScript, Node.js, and
-                development.
+                projects and <Link to="/blog">writing</Link>{`about modern web development, `}<a href="https://github.com/lavinske" target="_blank" rel="noopener noreferrer">
+                  HackTheBox writeup
+                </a>{' '}and my other daily project or skills improvement.
               </p>
               <div className="social-buttons">
                 <GitHubButton
-                  href="https://github.com/taniarascia"
+                  href="https://github.com/lavinske"
                   data-size="large"
                   data-show-count="true"
                 >
@@ -48,16 +49,7 @@ export default class Index extends Component {
               </div>
             </div>
             <div className="newsletter-section">
-              <img src={tania} className="newsletter-avatar" alt="Tania" />
-              <div>
-                <h3>Email Newsletter</h3>
-                <p>
-                  I write tutorials. Get an update when something new comes out by signing up below!
-                </p>
-                <a className="button" href="https://taniarascia.substack.com">
-                  Subscribe
-                </a>
-              </div>
+              <img src={maxine} className="newsletter-avatar" alt="Maxine" />
             </div>
           </div>
         </div>
