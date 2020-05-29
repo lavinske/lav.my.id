@@ -17,26 +17,6 @@ export default class UserInfo extends Component {
               <p>
                 Hey, I’m Steven Lavinske, an university student. I'm now learning Gatsby.js
               </p>
-
-              // <div className="flex">
-              //   <a
-              //     href="https://ko-fi.com/taniarascia"
-              //     className="donate-button"
-              //     target="_blank"
-              //     rel="noopener noreferrer"
-              //   >
-              //     <img src={kofi} className="coffee-icon" alt="Coffee icon" />
-              //     Buy me a coffee
-              //   </a>
-              //   <a
-              //     className="patreon-button"
-              //     href="https://www.patreon.com/taniarascia"
-              //     target="_blank"
-              //     rel="noopener noreferrer"
-              //   >
-              //     <img src={patreon} height="50" width="50" alt="Patreon" /> Become a Patron
-              //   </a>
-              // </div>
             </div>
           </div>
         </div>
