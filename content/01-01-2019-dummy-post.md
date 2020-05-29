@@ -2,7 +2,8 @@
 slug: dummy-post
 title: Bold Mage
 date: 2019-09-09
-thumbnail: floppy.png
+thumbnail: 
+    - floppy.png
 template: post
 categories:
     - HTB - Writeups
