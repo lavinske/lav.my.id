@@ -1,7 +1,7 @@
 ---
-slug: bold-mage
+slug: dummy-post
 title: Bold Mage
-date: 2020-05-19 09:21:52+00:00
+date: 2019-09-09
 thumbnail: floppy.png
 template: "post"
 categories:
