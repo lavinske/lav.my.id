@@ -4,7 +4,6 @@ date: "2018-07-18T13:35:13.234Z"
 title: "The Road to GraphQL"
 description: "GraphQL Description ..."
 template: "post"
-thumbnail: "thumbnails/floppy.png"
 categories: ["graphql", "javascript"]
 tags: ["graphql", "book"]
 ---
