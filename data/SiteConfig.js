@@ -2,7 +2,7 @@ const config = {
   siteTitle: 'Steven Lavinske',
   siteTitleShort: 'Maxine',
   siteTitleAlt: 'Maxine',
-  siteLogo: '/logos/logo-1024.png',
+  siteLogo: '/logos/hd.png',
   siteUrl: 'https://www.lav.my.id',
   repo: 'https://github.com/lavinske/lav.my.id',
   pathPrefix: '',
