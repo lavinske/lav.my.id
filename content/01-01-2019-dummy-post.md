@@ -1,14 +1,12 @@
 ---
-slug: dummy-post
-title: Bold Mage
-date: 2019-09-09
-thumbnail: ./content/thumbnails/floppy.png
-template: post
-categories:
-    - HTB - Writeups
-tags:
-    - Admirer
-    - HTB
+slug: "/graphql-book"
+date: "2018-07-18T13:35:13.234Z"
+title: "The Road to GraphQL"
+description: "GraphQL Description ..."
+thumbnail: "./thumbnails/floppy.png"
+template: "post"
+categories: ["graphql", "javascript"]
+tags: ["graphql", "book"]
 ---
 
 # Quanto et ius coniunctis urbes
