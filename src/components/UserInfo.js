@@ -13,9 +13,9 @@ export default class UserInfo extends Component {
               <img className="avatar" src={maxine} alt="Steven Lavinske" />
             </div>
             <div>
-              <h3>Author</h3>
+              <h3>Penulis</h3>
               <p>
-                Hey, I’m Steven Lavinske, an university student. I'm now learning Gatsby.js
+                #StaySafeAtHome membuatku membuat semua ini. Gabut dan penasaran, ya itu motivasinya.
               </p>
             </div>
           </div>
