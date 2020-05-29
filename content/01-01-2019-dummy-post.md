@@ -2,8 +2,8 @@
 slug: dummy-post
 title: Bold Mage
 date: 2019-09-09
-thumbnail: floppy.png
-template: "post"
+thumbnail: https://kelasku.sangat.pro/lolicon.png
+template: post
 categories:
     - HTB - Writeups
 tags:
