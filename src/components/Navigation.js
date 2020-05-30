@@ -37,7 +37,7 @@ export default class Navigation extends Component {
       <nav className={scrolled ? 'nav scroll' : 'nav'}>
         <div className="nav-container">
           <div className="brand">
-            <Link to="https://lav.my.id">
+            <Link to="/">
               <img src={hds} className="favicon" alt="Hand Drawn Picture of Me" />
               <span className="text">Steven Lavinske</span>
             </Link>
