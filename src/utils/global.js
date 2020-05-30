@@ -1,5 +1,6 @@
 import urljoin from 'url-join'
 import moment from 'moment'
+import 'moment/locale/id'
 import config from '../../data/SiteConfig'
 
 const formatDate = date => moment.utc(date).locale('id').format(config.dateFormat)
