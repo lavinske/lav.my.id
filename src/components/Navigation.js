@@ -48,7 +48,7 @@ export default class Navigation extends Component {
                 {link.name}
               </Link>
             ))}
-            <a href="https://linkedin.com/in/lavinske">LinkedIn</a>
+            <a href="https://linkedin.com/in/lavinske" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
           <div className="cta">
             <button

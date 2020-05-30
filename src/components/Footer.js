@@ -10,7 +10,6 @@ export default class Footer extends Component {
     return (
       <footer className="footer container">
         <div>
-          <Link to="/blog/">Blog</Link>
           <a href="/rss.xml" target="_blank" rel="noopener noreferrer">
             RSS
           </a>
@@ -18,7 +17,7 @@ export default class Footer extends Component {
             Blog Kolaboratif
           </a>
           <a href="https://taniarascia.com" target="_blank" rel="noopener noreferrer">
-            Tema buatan Tania
+            Tema dibuat oleh Tania
           </a>
         </div>
         <div>
