@@ -8,7 +8,7 @@ import SEO from '../components/SEO'
 import config from '../../data/SiteConfig'
 
 const manuals = [
-  
+  // { name: 'React', image: react, url: '/getting-started-with-react' },
 ]
 
 export default class BlogPage extends Component {
@@ -43,21 +43,8 @@ export default class BlogPage extends Component {
       <Layout>
         <Helmet title={`Articles – ${config.siteTitle}`} />
         <SEO />
-        <div className="gradient-section articles">
-          <div className="container">
-            <h2 className="text-center">Direktori Blog</h2>
-            <div className="instruction-manuals">
-              {manuals.map(manual => (
-                <Link to={manual.url} key={manual.url}>
-                  <img src={manual.image} alt={manual.name} />
-                  <h3>{manual.name}</h3>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
         <div className="container">
-          <h1 className="articles-title">Articles</h1>
+          <h1 className="articles-title">Tulisan-tulisan</h1>
           <div className="category-container">
             {categories.map(category => {
               return (
