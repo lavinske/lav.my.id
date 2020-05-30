@@ -28,7 +28,7 @@ export default class Index extends Component {
             <div className="elevator">
               <h1>{`Sampurasun, kuring Maxine`} </h1>
               <p>
-                {`Anak kuliahan dari Bandung, demen bikin project `}
+                {`Anak kuliahan dari Bandung, demen ngorpek project `}
                 <a href="https://github.com/lavinske" target="_blank" rel="noopener noreferrer">
                   open source
                 </a>{' '}
@@ -71,7 +71,7 @@ export default class Index extends Component {
           </section>
 
           <section className="section">
-            <h2>Project Open Source</h2>
+            <h2>Project</h2>
             <ProjectListing projects={projects} />
           </section>
 
