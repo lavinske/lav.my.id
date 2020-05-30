@@ -26,7 +26,7 @@ export default class Index extends Component {
         <div className="container">
           <div className="lead">
             <div className="elevator">
-              <h1>{`Sampurasun, kuring Maxine`} </h1>
+              <h1>{`Halo, Saya Steven`} </h1>
               <p>
                 {`Anak kuliahan dari Bandung, demen ngorpek project `}
                 <a href="https://github.com/lavinske" target="_blank" rel="noopener noreferrer">
