@@ -17,6 +17,9 @@ export default class Footer extends Component {
           <a href="https://blog.bankcentral.asia" target="_blank" rel="noopener noreferrer">
             Blog Kolaboratif
           </a>
+          <a href="https://taniarascia.com" target="_blank" rel="noopener noreferrer">
+            Template by Tania
+          </a>
         </div>
         <div>
           <a href="https://instagram.com/lavinske" title="View my Instagram" target="_blank" rel="noopener noreferrer">

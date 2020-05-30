@@ -64,7 +64,7 @@ export default class BlogPage extends Component {
               type="text"
               name="searchTerm"
               value={searchTerm}
-              placeholder="Type here to filter posts..."
+              placeholder="Cari artikel..."
               onChange={this.handleChange}
             />
             <div className="filter-count">{filterCount}</div>
