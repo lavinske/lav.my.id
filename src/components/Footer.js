@@ -18,7 +18,7 @@ export default class Footer extends Component {
             Blog Kolaboratif
           </a>
           <a href="https://taniarascia.com" target="_blank" rel="noopener noreferrer">
-            Template by Tania
+            Tema buatan Tania
           </a>
         </div>
         <div>
