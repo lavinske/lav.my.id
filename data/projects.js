@@ -3,7 +3,7 @@ export default [
     icon: '💻',
     title: 'PiKA',
     source: 'https://github.com/njsgan/PiKA',
-    description: 'Aplikasi Point of Sales, berbasis Java OOP.',
+    description: 'Aplikasi Point of Sales, berbasis Java MVC.',
   },
   {
     icon: '🌐',
