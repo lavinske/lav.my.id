@@ -18,7 +18,7 @@ export default class TrainingPage extends Component {
 
     const companyStr = Object.keys(logoMap)
       .join(', ')
-      .replace(/, ([^,]*)$/, ' and $1')
+      .replace(/, ([^,]*)$/, ' dan $1')
 
     const pubs = Object.entries(training)
     return (
