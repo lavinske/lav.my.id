@@ -1,26 +1,32 @@
 export default [
   {
-    icon: '💾',
+    icon: '💻',
     title: 'PiKA',
     source: 'https://github.com/njsgan/PiKA',
-    description: 'A free, open source Point Of Sales Application based on Java.',
+    description: 'Aplikasi Point of Sales, berbasis Java OOP.',
   },
   {
-    icon: '⛏️',
+    icon: '🌐',
+    title: 'PPAP',
+    link: 'https://ppap.bankcentral.asia',
+    description: 'Portal Alumni untuk PPA/PPTI.',
+  },
+  {
+    icon: '🏢',
     title: 'IPL',
     source: 'https://github.com/lavinske/ipl/',
-    description: 'Simulates "Iuran Pemeliharaan Lingkungan" web-based system at Sentul City, creates a simple, easy to access, user-friendly, and open-information for residents.',
+    description: 'Sistem penagihan dan konfirmasi pembayaran IPL (Iuran Pemeliharaan Lingkungan) di Sentul City.',
   },
   {
     icon: '📝',
     title: 'Homemade CMS',
     source: 'https://github.com/lavinske/homemade-cms/',
-    description: 'Homemade Content Management System, still in development. Fully hardcode no framework.',
+    description: 'CMS Rumahan, sepenuhnya hardcode, project pertama yang sudah tidak di update lagi.',
   },
   {
-    icon: '📦',
+    icon: '🛒',
     title: 'KYAMedia',
     source: 'https://github.com/lavinske/KYAMedia/',
-    description: 'Tugas Lab Human Computer Interaction PPTI 6.',
+    description: 'Tugas Praktek Mata Kuliah Human and Computer Interaction (COMP6176).',
   },
 ]
