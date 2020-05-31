@@ -120,7 +120,7 @@ export default {
         'https://www.coursera.org/account/accomplishments/certificate/SH6ZYQZM3HKU',
     },
   ],
-  ICSI: [
+  'International CyberSecurity Institute': [
     {
       title: 'ICSI | CNSS Certified Network Security Specialist',
       path: 'https://www.credential.net/82e00117-a77f-4b30-8fe4-a81124a59614',

@@ -23,6 +23,10 @@ const config = {
       name: 'Artikel',
       link: '/blog/',
     },
+    {
+      name: 'Pencapaian',
+      link: '/training/',
+    },
   ],
   themeColor: '#0094d6', // Used for setting manifest and progress theme colors.
   backgroundColor: '#ffffff',

@@ -32,20 +32,20 @@ export default class TrainingPage extends Component {
             <p>Aku telah mengikuti pelatihan di {companyStr}.</p>
             {pubs.map((publication, i) => {
               const company = publication[0]
-              const articles = publication[1]
+              const certificate = publication[1]
 
               return (
                 <article key={company}>
-                  <h2 className="publication-company" id={company.replace(/\s/g, '')}>
-                    <img src={logoMap[company]} alt="Company" />
+                  <h2 className="training-company" id={company.replace(/\s/g, '')}>
+                    <img src={logoMap[company]} alt="Lembaga Training" />
                     {company}
                   </h2>
                   <ul key={i}>
-                    {articles.map((article, f) => {
+                    {certificate.map((certificate, f) => {
                       return (
                         <li key={f}>
-                          <a href={article.path} target="_blank" rel="noopener noreferrer">
-                            {article.title}
+                          <a href={certificate.path} target="_blank" rel="noopener noreferrer">
+                            {certificate.title}
                           </a>
                         </li>
                       )
