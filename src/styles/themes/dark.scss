@@ -73,8 +73,7 @@ $dark-primary: $tag;
 
       &:active,
       &:focus {
-        background: darken($dark-primary, 10%);
-        color: white;
+        color: darken($foreground, 10%);
         border-radius: 4px;
       }
     }

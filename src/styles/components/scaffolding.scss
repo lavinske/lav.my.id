@@ -235,8 +235,7 @@ a {
     }
     &:active,
     &:focus {
-      background: darken($link-hover-color, 10%);
-      color: $primary-hover;
+      color: darken($link-hover-color, 10%);
     }
   }
 
