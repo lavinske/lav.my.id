@@ -27,6 +27,10 @@ const config = {
       name: 'Tentang',
       link: '/saya/',
     },
+    {
+      name: 'Kontak',
+      link: '/kontak/',
+    },
   ],
   themeColor: '#0094d6', // Used for setting manifest and progress theme colors.
   backgroundColor: '#ffffff',
