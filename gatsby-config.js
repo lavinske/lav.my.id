@@ -75,6 +75,12 @@ module.exports = {
         color: config.themeColor,
       },
     },
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'id'
+      }
+    },
     'gatsby-plugin-sharp',
     `gatsby-transformer-sharp`,
     'gatsby-plugin-catch-links',
