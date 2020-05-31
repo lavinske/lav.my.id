@@ -121,7 +121,7 @@ export const pageQuery = graphql`
     popular: allMarkdownRemark(
       limit: 9
       sort: { fields: [fields___date], order: DESC }
-      filter: { frontmatter: { categories: { eq: "Popular" } } }
+      filter: { frontmatter: { categories: { eq: "populer" } } }
     ) {
       edges {
         node {
