@@ -13,37 +13,12 @@ export default [
     img: cert,
   },
   {
-    title: 'Introduction to G Suite by Google Cloud',
-    path: 'https://www.coursera.org/account/accomplishments/certificate/SH6ZYQZM3HKU',
-    img: cert,
-  },
-  {
-    title: 'How Google does Machine Learning by Google Cloud',
-    path: 'https://www.coursera.org/account/accomplishments/certificate/HQ63DWYE3HB4',
-    img: cert,
-  },
-  {
     title: 'Exploring and Preparing your Data with BigQuery',
     path: 'https://www.coursera.org/account/accomplishments/certificate/D3ZLJGF688TL',
     img: cert,
   },
   {
-    title: 'Data Science on Google Cloud: Machine Learning',
-    path: 'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
-    img: train,
-  },
-  {
     title: 'Data Engineering',
-    path: 'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
-    img: train,
-  },
-  {
-    title: 'Google Cloud Solutions II: Data and Machine Learning',
-    path: 'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
-    img: train,
-  },
-  {
-    title: 'Data Science on Google Cloud: Machine Learning',
     path: 'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
     img: train,
   },

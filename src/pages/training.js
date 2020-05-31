@@ -12,7 +12,7 @@ export default class TrainingPage extends Component {
   render() {
     const logoMap = {
       Qwiklabs: qwiklabs,
-      Coursera, coursera,
+      Coursera: coursera,
       'International CyberSecurity Institute': icsi,
     }
 

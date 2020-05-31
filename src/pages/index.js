@@ -76,7 +76,11 @@ export default class Index extends Component {
           </section>
 
           <section className="section">
-            <h2>Pelatihan dan Sertifikasi</h2>
+            <h2>Pelatihan dan Sertifikasi
+              <Link to="/training" className="view-all">
+                Lihat Semua
+              </Link>
+            </h2>
             <SimpleListing simple data={training} />
           </section>
 
