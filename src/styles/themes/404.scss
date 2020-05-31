@@ -8,7 +8,7 @@
   color: #bbb;
   font-family: 'PerfectDOS', 'Courier New', monospace;
   font-weight: 400;
-  font-size: 16px;
+  font-size: .0.75rem;
   height: 100vh;
   #main-content {
     padding-top: 80px;
@@ -95,7 +95,7 @@
 
 @media (min-width: 900px) {
   .not-found {
-    font-size: 24px;
+    font-size: 1rem;
     #main-content {
       padding-top: 160px;
     }
@@ -104,14 +104,14 @@
         .links,
         .brand {
           a {
-            font-size: 24px;
+            font-size: 1rem;
             padding: 0 15px;
           }
         }
       }
     }
     p {
-      font-size: 24px;
+      font-size: 1rem;
     }
     img {
       display: none;

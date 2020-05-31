@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
-import netlify from '../../content/images/netlify.png'
+import netlify from '../../content/thumbnails/netlify.png'
 import gatsby from '../../content/thumbnails/gatsby.png'
-import github from '../../content/images/github.png'
-import instagram from '../../content/images/instagram.png'
+import facebook from '../../content/thumbnails/facebook.png'
+import linkedin from '../../content/thumbnails/linkedin.png'
+import instagram from '../../content/thumbnails/instagram.png'
 
 export default class Footer extends Component {
   render() {
@@ -21,6 +22,13 @@ export default class Footer extends Component {
           </a>
         </div>
         <div>
+          <a href="https://linkedin.com/in/lavinske" title="View my LinkedIn" target="_blank" rel="noopener noreferrer">
+            <img
+              src={linkedin}
+              className="footer-img"
+              alt="LinkedIn"
+            />
+          </a>
           <a href="https://instagram.com/lavinske" title="View my Instagram" target="_blank" rel="noopener noreferrer">
             <img
               src={instagram}
@@ -28,11 +36,11 @@ export default class Footer extends Component {
               alt="Instagram"
             />
           </a>
-          <a href="https://github.com/lavinske" title="Open-source on GitHub" target="_blank" rel="noopener noreferrer">
+          <a href="https://facebook.com/steven.lavinske" title="View my Facebook" target="_blank" rel="noopener noreferrer">
             <img
-              src={github}
+              src={facebook}
               className="footer-img"
-              alt="GitHub"
+              alt="Facebook"
             />
           </a>
           <a href="https://www.netlify.com/" title="Hosted by Netlify" target="_blank" rel="noopener noreferrer">

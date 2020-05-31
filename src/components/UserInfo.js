@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import maxine from '../../content/images/maxine.jpg'
-import patreon from '../../content/thumbnails/patreon.png'
-import kofi from '../../content/thumbnails/kofi.png'
 
 export default class UserInfo extends Component {
   render() {
