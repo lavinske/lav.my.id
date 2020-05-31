@@ -63,7 +63,7 @@ export default class Index extends Component {
           <section className="section">
             <h2>
               Tulisan Terpopuler
-              <Link to="/categories/popular" className="view-all">
+              <Link to="/categories/populer" className="view-all">
                 Lihat Semua
               </Link>
             </h2>
