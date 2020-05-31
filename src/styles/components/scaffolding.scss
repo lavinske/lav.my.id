@@ -231,8 +231,7 @@ a {
     padding: 1px 2px;
     border-radius: 4px;
     &:hover {
-      background: $link-hover-color;
-      color: $primary-hover;
+      color: $link-hover-color;
     }
     &:active,
     &:focus {
