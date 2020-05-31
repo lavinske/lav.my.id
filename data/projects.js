@@ -8,7 +8,7 @@ export default [
   {
     icon: '🌐',
     title: 'PPAP',
-    link: 'https://ppap.bankcentral.asia',
+    path: 'https://ppap.bankcentral.asia',
     description: 'Portal Alumni untuk PPA/PPTI.',
   },
   {
