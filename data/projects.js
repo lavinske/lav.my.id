@@ -33,6 +33,6 @@ export default [
     icon: '⚒',
     title: 'WorkLink',
     source: 'https://github.com/lavinske/worklink/',
-    description: 'Tugas Mata Kuliah Software Engineering dan Database Design',
+    description: 'Aplikasi Freelancer berbasis PHP, dibuat untuk memenuhi Tugas Mata Kuliah Software Engineering dan Database Design',
   },
 ]
