@@ -46,7 +46,7 @@ $font-variant: normal;
 $font-weight: normal;
 $font-color: #454545;
 $light-font-color: rgba(0, 0, 0, 0.6);
-$font-family: Helvetica Neue, -apple-system, BlinkMacSystemFont, Helvetica, Arial,
+$font-family: Roboto, -apple-system, BlinkMacSystemFont, Helvetica, Arial,
   sans-serif;
 $line-height: 1.6;
 
@@ -85,7 +85,7 @@ $border-style: solid;
 $border-color: #ccc;
 $border-radius: 6px;
 $borders: $border-width $border-style $border-color;
-$box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.16);
+$box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.4);
 
 /* Buttons */
 
@@ -94,7 +94,7 @@ $button-background: $primary-color;
 $button-background-hover: darken($primary-color, 15%);
 $button-color: white;
 $button-font-weight: 500;
-$button-font-family: Helvetica Neue, 'Montserrat', -apple-system, BlinkMacSystemFont, Helvetica, Arial,
+$button-font-family: Roboto, 'Montserrat', -apple-system, BlinkMacSystemFont, Helvetica, Arial,
   sans-serif;
 $button-font-size: 1.1rem;
 $button-border-width: 2px;

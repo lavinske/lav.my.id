@@ -345,7 +345,7 @@
       .each {
         grid-template-columns: 80px 1fr 90px;
         align-items: start;
-        padding: 2rem;
+        padding: 1rem 2rem;
         margin: 0 -2rem;
 
         &:hover {
@@ -415,7 +415,7 @@
 
 @media screen and (min-width: 1050px) {
   .posts:not(.simple) {
-    margin: 3rem 0 3rem -6rem;
+    margin: 3rem 0;
   }
 }
 
@@ -783,7 +783,7 @@ blockquote {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   padding: 4rem 0;
-  background: radial-gradient(circle at 20% 20%, #5183f5 25%, #4640ff 100%);
+  background: radial-gradient(circle at 10% 20%, #5A0502 25%, #F00 100%);
 
   h2 {
     color: white;
@@ -857,7 +857,7 @@ blockquote {
   margin: 1.5rem;
 
   .note-container {
-    background: radial-gradient(circle at 20% 20%, #F44336 25%, #E91E63 100%);
+    background: radial-gradient(circle at 10% 20%, #5A0502 25%, #F00 100%);
     box-shadow: 0.5rem 1.25rem 1.75rem 0 rgba(100, 110, 140, 0.4);
     color: rgba(255, 255, 255, 0.9);
     border-radius: $border-radius;

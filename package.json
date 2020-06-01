@@ -38,6 +38,7 @@
     "react-helmet": "^5.2.0",
     "sharp": "^0.25.3",
     "typeface-montserrat": "0.0.75",
+    "typeface-roboto": "0.0.75",
     "typeface-roboto-mono": "0.0.75",
     "url-join": "^4.0.0"
   },
