@@ -29,4 +29,10 @@ export default [
     source: 'https://github.com/lavinske/KYAMedia/',
     description: 'Tugas Praktek Mata Kuliah Human and Computer Interaction (COMP6176).',
   },
+  {
+    icon: '⚒',
+    title: 'WorkLink',
+    source: 'https://github.com/lavinske/worklink/',
+    description: 'Tugas Mata Kuliah Software Engineering dan Database Design',
+  },
 ]
