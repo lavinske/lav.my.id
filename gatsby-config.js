@@ -109,6 +109,7 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-offline',
     'typeface-roboto-mono',
     'typeface-montserrat',
     'typeface-roboto',
