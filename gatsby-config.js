@@ -85,6 +85,8 @@ module.exports = {
     `gatsby-transformer-sharp`,
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sitemap',
+    'typeface-roboto-mono',
+    'typeface-montserrat',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
