@@ -1,5 +1,7 @@
 import React from 'react'
 import { ThemeProvider } from './src/context/ThemeContext'
+require('typeface-montserrat')
+require('typeface-roboto')
 
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(
