@@ -22,21 +22,21 @@ export default class Footer extends Component {
           </a>
         </div>
         <div>
-          <a href="https://linkedin.com/in/lavinske" title="View my LinkedIn" target="_blank" rel="noopener noreferrer">
+          <a href="https://tell.my.id/linkedin" title="View my LinkedIn" target="_blank" rel="noopener noreferrer">
             <img
               src={linkedin}
               className="footer-img"
               alt="LinkedIn"
             />
           </a>
-          <a href="https://instagram.com/lavinske" title="View my Instagram" target="_blank" rel="noopener noreferrer">
+          <a href="https://tell.my.id/ig" title="View my Instagram" target="_blank" rel="noopener noreferrer">
             <img
               src={instagram}
               className="footer-img"
               alt="Instagram"
             />
           </a>
-          <a href="https://facebook.com/steven.lavinske" title="View my Facebook" target="_blank" rel="noopener noreferrer">
+          <a href="https://tell.my.id/fb" title="View my Facebook" target="_blank" rel="noopener noreferrer">
             <img
               src={facebook}
               className="footer-img"
