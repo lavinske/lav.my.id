@@ -87,6 +87,91 @@ export default {
       path:
         'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
     },
+    {
+      title: 'Insights from Data with BigQuery',
+      path:
+        'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
+    },
+    {
+      title: 'Engineer Data in Google Cloud',
+      path:
+        'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
+    },
+    {
+      title: 'Integrate with Machine Learning APIs',
+      path:
+        'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
+    },
+    {
+      title: 'Cloud Architecture',
+      path:
+        'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
+    },
+    {
+      title: 'Windows on GCP',
+      path:
+        'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
+    },
+    {
+      title: 'Build a Website on Google Cloud',
+      path:
+        'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
+    },
+    {
+      title: 'Deploy and Manage Cloud Environments with Google Cloud',
+      path:
+        'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
+    },
+    {
+      title: 'Set up and Configure a Cloud Environment in Google Cloud',
+      path:
+        'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
+    },
+    {
+      title: 'Implement DevOps in Google Cloud',
+      path:
+        'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
+    },
+    {
+      title: 'Perform Foundational Data, ML, and AI Tasks in Google Cloud',
+      path:
+        'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
+    },
+    {
+      title: 'Explore Machine Learning Models with Explainable AI',
+      path:
+        'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
+    },
+    {
+      title: 'Build and Secure Networks in Google Cloud',
+      path:
+        'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
+    },
+    {
+      title: 'Automate Interactions with Contact Center AI',
+      path:
+        'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
+    },
+    {
+      title: 'Data Catalog Fundamentals',
+      path:
+        'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
+    },
+    {
+      title: 'Cloud Architecture: Design, Implement, and Manage',
+      path:
+        'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
+    },
+    {
+      title: 'Build and Manage APIs with Apigee',
+      path:
+        'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
+    },
+    {
+      title: 'BigQuery for Machine Learning',
+      path:
+        'https://www.qwiklabs.com/public_profiles/bf900b69-aaff-47fe-82ff-5609a781fcea',
+    },
   ],
   Coursera: [
     {
