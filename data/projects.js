@@ -1,5 +1,11 @@
 export default [
   {
+    icon: '🎓',
+    title: 'Wardaya College',
+    path: 'https://wardayaonline.com',
+    description: 'Pembuatan backend, frontend, dan SEO untuk website Wardaya Online.',
+  },
+  {
     icon: '💻',
     title: 'PiKA',
     source: 'https://github.com/njsgan/PiKA',
