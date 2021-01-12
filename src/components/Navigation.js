@@ -38,7 +38,7 @@ export default class Navigation extends Component {
         <div className="nav-container">
           <div className="brand">
             <Link to="/">
-              <img src={hds} className="favicon" alt="Hand Drawn Picture of Me" />
+              <img src={hds} className="favicon" alt="My Logo" />
               <span className="text">Steven Lavinske</span>
             </Link>
           </div>

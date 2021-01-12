@@ -98,7 +98,7 @@ module.exports = {
         icons: [
           {
             src: '/logos/hd_smol.png',
-            sizes: '32x32',
+            sizes: '96x96',
             type: 'image/png',
           },
           {
