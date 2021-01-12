@@ -103,7 +103,7 @@ module.exports = {
           },
           {
             src: '/logos/hd.png',
-            sizes: '800x800',
+            sizes: '1230x1230',
             type: 'image/png',
           },
         ],
