@@ -60,7 +60,7 @@
     "write-good": "^1.0.1"
   },
   "keywords": [
-    "tania rascia",
+    "steven lavinske",
     "development",
     "dev",
     "tutorials",
@@ -68,6 +68,7 @@
     "articles",
     "blog"
   ],
+  "resolutions": { "sharp": "0.24.0" },
   "license": "MIT",
   "main": "n/a",
   "scripts": {
