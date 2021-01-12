@@ -68,7 +68,7 @@
     "articles",
     "blog"
   ],
-  "resolutions": { "sharp": "0.24.0" },
+  "resolutions": { "sharp": "^0.25.3" },
   "license": "MIT",
   "main": "n/a",
   "scripts": {
