@@ -109,7 +109,12 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/`, `/blog/*`, `/saya`, `/kontak`],
+      },
+    },
     'typeface-roboto-mono',
     'typeface-montserrat',
     'typeface-roboto',

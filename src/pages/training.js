@@ -29,7 +29,7 @@ export default class TrainingPage extends Component {
             <h1>Pelatihan dan Sertifikasi</h1>
           </header>
           <div className="page">
-            <p>Aku telah mengikuti pelatihan di {companyStr}.</p>
+            <p>Aku sudah mengikuti pelatihan di {companyStr}.</p>
             {pubs.map((publication, i) => {
               const company = publication[0]
               const certificate = publication[1]
