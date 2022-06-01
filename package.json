@@ -36,7 +36,7 @@
     "react-dom": "^17.0.1",
     "react-github-btn": "^1.2.0",
     "react-helmet": "^6.1.0",
-    "sharp": "^0.27.0",
+    "sharp": "^0.30.5",
     "typeface-montserrat": "1.1.13",
     "typeface-roboto": "1.1.13",
     "typeface-roboto-mono": "1.1.13",
@@ -69,7 +69,7 @@
     "blog"
   ],
   "resolutions": {
-    "sharp": "0.27.0"
+    "sharp": "0.30.5"
   },
   "license": "MIT",
   "main": "n/a",
