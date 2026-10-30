@@ -160,7 +160,7 @@ exports.createPages = ({ graphql, actions }) => {
             })
           }
 
-          if (edge.node.frontmatter.template === 'page') {
+          if (edge.node.frontmatter.template === 'page' && edge.node.fields.slug !== '/kontak/') {
             createPage({
               path: edge.node.fields.slug,
               component: pagePage,

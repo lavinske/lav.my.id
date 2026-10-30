@@ -28,10 +28,6 @@ const config = {
       link: '/saya/',
     },
     {
-      name: 'Kontak',
-      link: '/kontak/',
-    },
-    {
       name: 'Tautan',
       link: '/link/',
     },

@@ -63,7 +63,7 @@ export default class LinkPage extends Component {
                           <span className="linktree-desc">{item.description}</span>
                         </div>
                       </div>
-                      <span className="linktree-arrow">&rarr;</span>
+                      <span className="linktree-arrow">→</span>
                     </Link>
                   ) : (
                     <a
@@ -79,7 +79,7 @@ export default class LinkPage extends Component {
                           <span className="linktree-desc">{item.description}</span>
                         </div>
                       </div>
-                      <span className="linktree-arrow">&nearr;</span>
+                      <span className="linktree-arrow">↗</span>
                     </a>
                   )}
                 </li>
