@@ -4,78 +4,79 @@ import config from '../config';
 
 const links = [
   {
-    title: 'Blog / Artikel',
-    description: 'Kumpulan artikel dan tulisan teknologi',
+    title: 'Blog & Artikel',
+    description: 'Catatan teknis, arsitektur sistem, dan eksplorasi homelab',
     url: '/blog/',
+    displayUrl: 'lav.my.id/blog',
     internal: true,
-    icon: '📝',
+    badge: 'Artikel',
   },
   {
     title: 'LinkedIn',
-    description: 'Profil profesional dan karier',
+    description: 'Profil profesional dan riwayat karier',
     url: 'https://go.tell.my.id/lin',
+    displayUrl: 'go.tell.my.id/lin',
     internal: false,
-    icon: '💼',
+    badge: 'Karier',
   },
   {
     title: 'GitHub',
-    description: 'Repositori open source dan proyek',
+    description: 'Repositori open source, project, dan otomasi',
     url: 'https://go.tell.my.id/github',
+    displayUrl: 'github.com/lavinske',
     internal: false,
-    icon: '💻',
+    badge: 'Kode',
   },
   {
     title: 'Email',
-    description: 'Kontak dan pesan langsung',
+    description: 'Korespondensi dan pesan langsung',
     url: 'https://go.tell.my.id/mail',
+    displayUrl: 'go.tell.my.id/mail',
     internal: false,
-    icon: '✉️',
+    badge: 'Kontak',
   },
 ];
 ---
 <Layout title="Tautan">
   <div class="container">
-    <div class="linktree-container">
-      <header class="linktree-header">
-        <img src="/logos/hd.png" alt={config.siteTitle} class="linktree-avatar" />
-        <h1>{config.siteTitle}</h1>
-        <p class="linktree-tagline">{config.siteDescription}</p>
-      </header>
+    <div class="lead">
+      <div class="elevator" style="text-align: center;">
+        <img
+          src="/logos/hd.png"
+          alt={config.siteTitle}
+          class="avatar"
+          style="display: block; margin: 0 auto 1.25rem; width: 90px; height: 90px; object-fit: cover;"
+        />
+        <h1 style="margin-bottom: 0.35rem;">{config.siteTitle}</h1>
+        <p style="margin: 0 auto; max-width: 480px; color: inherit; opacity: 0.85;">
+          {config.siteDescription}
+        </p>
+      </div>
+    </div>
 
-      <ul class="linktree-list">
-        {links.map((item) => (
-          <li class="linktree-item">
-            {item.internal ? (
-              <a href={item.url} class="linktree-card">
-                <div class="linktree-card-left">
-                  <span class="linktree-icon">{item.icon}</span>
-                  <div class="linktree-text">
-                    <span class="linktree-title">{item.title}</span>
-                    <span class="linktree-desc">{item.description}</span>
-                  </div>
-                </div>
-                <span class="linktree-arrow">→</span>
-              </a>
-            ) : (
-              <a
-                href={item.url}
-                class="linktree-card"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div class="linktree-card-left">
-                  <span class="linktree-icon">{item.icon}</span>
-                  <div class="linktree-text">
-                    <span class="linktree-title">{item.title}</span>
-                    <span class="linktree-desc">{item.description}</span>
-                  </div>
-                </div>
-                <span class="linktree-arrow">↗</span>
-              </a>
-            )}
-          </li>
-        ))}
-      </ul>
+    <div class="link-directory">
+      {links.map((item) => (
+        <a
+          href={item.url}
+          class="link-row"
+          target={item.internal ? '_self' : '_blank'}
+          rel={item.internal ? '' : 'noopener noreferrer'}
+        >
+          <div class="link-main">
+            <div class="link-head">
+              <span class="link-title">{item.title}</span>
+              <span class="link-badge">{item.badge}</span>
+            </div>
+            <p class="link-desc">{item.description}</p>
+            <span class="link-url">{item.displayUrl}</span>
+          </div>
+          <div class="link-action">
+            <span class="button action-button">
+              {item.internal ? 'Buka →' : 'Kunjungi ↗'}
+            </span>
+          </div>
+        </a>
+      ))}
     </div>
   </div>
 </Layout>

@@ -1,156 +1,166 @@
-.linktree-container {
-  max-width: 540px;
-  margin: 0 auto;
-  padding: 1rem 1rem 3rem;
-  text-align: center;
+.link-directory {
+  max-width: 680px;
+  margin: 1.5rem auto 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 
-  .linktree-header {
-    margin-bottom: 2rem;
-
-    .linktree-avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      margin: 0 auto 1.25rem;
-      border: 3px solid $primary-color;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-      display: block;
-      object-fit: cover;
-    }
-
-    h1 {
-      font-size: 1.75rem;
-      margin: 0.25rem 0;
-      font-weight: 700;
-      letter-spacing: -0.02rem;
-    }
-
-    .linktree-tagline {
-      color: $alternate-color;
-      font-size: 0.95rem;
-      margin-top: 0.35rem;
-      margin-bottom: 0;
-    }
-  }
-
-  .linktree-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .linktree-item {
-    margin: 0;
-    list-style: none;
-  }
-
-  .linktree-card {
+  .link-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.9rem 1.2rem;
+    padding: 1.1rem 1.35rem;
     background: #ffffff;
-    border: 2px solid darken($light, 5%);
-    border-radius: 12px;
+    border: 1px solid lighten($border-color, 12%);
+    border-radius: $border-radius;
     text-decoration: none !important;
-    transition: all 0.2s ease-in-out;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
+    color: inherit;
 
     &:hover {
       border-color: $primary-color;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(81, 131, 245, 0.15);
-      background: #ffffff;
+      background: $light;
+      transform: translateY(-1px);
+
+      .link-title {
+        color: $primary-color;
+      }
+
+      .action-button {
+        background: $primary-color;
+        border-color: $primary-color;
+        color: #ffffff;
+      }
     }
 
-    .linktree-card-left {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      text-align: left;
+    .link-main {
+      flex: 1;
+      min-width: 0;
+      padding-right: 1.25rem;
     }
 
-    .linktree-icon {
-      font-size: 1.4rem;
+    .link-head {
       display: flex;
       align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      background: rgba(81, 131, 245, 0.08);
-      border-radius: 10px;
+      gap: 0.65rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .link-title {
+      font-family: $heading-font-family;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: $heading-font-color;
+      transition: color 0.2s ease;
+    }
+
+    .link-badge {
+      font-size: 0.75rem;
+      font-family: $font-family;
+      font-weight: 500;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      background: lighten($primary-color, 36%);
+      color: darken($primary-color, 10%);
+    }
+
+    .link-desc {
+      margin: 0 0 0.4rem 0;
+      font-size: 0.9rem;
+      color: $light-font-color;
+      line-height: 1.4;
+    }
+
+    .link-url {
+      display: inline-block;
+      font-family: $code-font-family;
+      font-size: 0.8rem;
+      color: darken($light-font-color, 10%);
+      opacity: 0.85;
+    }
+
+    .link-action {
       flex-shrink: 0;
-    }
 
-    .linktree-text {
-      .linktree-title {
-        display: block;
-        font-weight: 600;
-        font-size: 1rem;
-        color: #2b2b2b;
+      .action-button {
+        margin: 0;
+        padding: 0.45rem 0.85rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        pointer-events: none;
+        transition: all 0.2s ease;
       }
-
-      .linktree-desc {
-        display: block;
-        font-size: 0.82rem;
-        color: #6c757d;
-        margin-top: 0.15rem;
-      }
-    }
-
-    .linktree-arrow {
-      color: #9aa0a6;
-      font-size: 1.2rem;
-      transition: transform 0.2s ease;
-    }
-
-    &:hover .linktree-arrow {
-      transform: translateX(3px);
-      color: $primary-color;
     }
   }
 }
 
 .dark {
-  .linktree-container {
-    .linktree-tagline {
-      color: #a0a0a0;
-    }
-
-    .linktree-card {
-      background: #282828;
-      border-color: #383838;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  .link-directory {
+    .link-row {
+      background: #242424;
+      border-color: #333333;
 
       &:hover {
         border-color: $tag;
+        background: #2a2a2a;
+
+        .link-title {
+          color: #ffffff;
+        }
+
+        .action-button {
+          background: $tag;
+          border-color: $tag;
+          color: #111111;
+        }
+      }
+
+      .link-title {
+        color: #f0f0f0;
+      }
+
+      .link-badge {
+        background: rgba(255, 255, 255, 0.08);
+        color: #d0d0d0;
+      }
+
+      .link-desc {
+        color: #a0a0a0;
+      }
+
+      .link-url {
+        color: #888888;
+      }
+
+      .action-button {
+        border-color: #444444;
         background: #2e2e2e;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+        color: #e0e0e0;
+      }
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .link-directory {
+    .link-row {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem;
+
+      .link-main {
+        padding-right: 0;
+        margin-bottom: 0.85rem;
       }
 
-      .linktree-icon {
-        background: rgba(255, 255, 255, 0.07);
-      }
+      .link-action {
+        width: 100%;
 
-      .linktree-text {
-        .linktree-title {
-          color: #f0f0f0;
+        .action-button {
+          display: block;
+          width: 100%;
+          text-align: center;
         }
-
-        .linktree-desc {
-          color: #a5a5a5;
-        }
-      }
-
-      .linktree-arrow {
-        color: #777777;
-      }
-
-      &:hover .linktree-arrow {
-        color: $tag;
       }
     }
   }
