@@ -1,0 +1,157 @@
+.linktree-container {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 1rem 1rem 3rem;
+  text-align: center;
+
+  .linktree-header {
+    margin-bottom: 2rem;
+
+    .linktree-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 0 auto 1.25rem;
+      border: 3px solid $primary-color;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+      display: block;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      margin: 0.25rem 0;
+      font-weight: 700;
+      letter-spacing: -0.02rem;
+    }
+
+    .linktree-tagline {
+      color: $alternate-color;
+      font-size: 0.95rem;
+      margin-top: 0.35rem;
+      margin-bottom: 0;
+    }
+  }
+
+  .linktree-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .linktree-item {
+    margin: 0;
+    list-style: none;
+  }
+
+  .linktree-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.2rem;
+    background: #ffffff;
+    border: 2px solid darken($light, 5%);
+    border-radius: 12px;
+    text-decoration: none !important;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+
+    &:hover {
+      border-color: $primary-color;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(81, 131, 245, 0.15);
+      background: #ffffff;
+    }
+
+    .linktree-card-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .linktree-icon {
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      background: rgba(81, 131, 245, 0.08);
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .linktree-text {
+      .linktree-title {
+        display: block;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #2b2b2b;
+      }
+
+      .linktree-desc {
+        display: block;
+        font-size: 0.82rem;
+        color: #6c757d;
+        margin-top: 0.15rem;
+      }
+    }
+
+    .linktree-arrow {
+      color: #9aa0a6;
+      font-size: 1.2rem;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover .linktree-arrow {
+      transform: translateX(3px);
+      color: $primary-color;
+    }
+  }
+}
+
+.dark {
+  .linktree-container {
+    .linktree-tagline {
+      color: #a0a0a0;
+    }
+
+    .linktree-card {
+      background: #282828;
+      border-color: #383838;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+
+      &:hover {
+        border-color: $tag;
+        background: #2e2e2e;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+      }
+
+      .linktree-icon {
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .linktree-text {
+        .linktree-title {
+          color: #f0f0f0;
+        }
+
+        .linktree-desc {
+          color: #a5a5a5;
+        }
+      }
+
+      .linktree-arrow {
+        color: #777777;
+      }
+
+      &:hover .linktree-arrow {
+        color: $tag;
+      }
+    }
+  }
+}

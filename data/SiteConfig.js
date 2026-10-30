@@ -31,6 +31,10 @@ const config = {
       name: 'Kontak',
       link: '/kontak/',
     },
+    {
+      name: 'Tautan',
+      link: '/link/',
+    },
   ],
   themeColor: '#0094d6', // Used for setting manifest and progress theme colors.
   backgroundColor: '#ffffff',
