@@ -17,18 +17,27 @@ const trainingData = training.map((t) => ({
   img: typeof t.img === 'string' ? t.img.replace(/^.*\/thumbnails\//, '/thumbnails/') : '/thumbnails/certificate.png',
 }));
 ---
-<Layout title="Catatan Harian">
+<Layout
+  title="Catatan Harian & Rekayasa Perangkat Lunak"
+  description="Catatan teknis dan dokumentasi Steven Lavinske seputar rekayasa perangkat lunak, arsitektur sistem, Linux, dan otomasi homelab."
+>
   <div class="container">
     <div class="lead">
       <div class="elevator">
-        <h1>Halo, Saya Steven</h1>
+        <h1 class="hero-headline">
+          <span class="hero-greeting">Halo, saya Steven.</span>
+          <span class="hero-cursor-wrapper">
+            <span id="hero-typewriter">Software Engineer</span>
+            <span class="hero-cursor" aria-hidden="true"></span>
+          </span>
+        </h1>
         <p>
-          Anak kuliahan dari Bandung, demen ngoprek project{' '}
+          Software engineer yang berfokus pada arsitektur sistem, automasi infrastruktur, dan pengembangan web.
+          Di sini saya menulis catatan teknis, dokumentasi project{' '}
           <a href="https://github.com/lavinske" target="_blank" rel="noopener noreferrer">
             open source
-          </a>{' '}
-          dan <i>mostly</i> <a href="/blog/">nulis</a> tentang development web kekinian,{' '}
-          <i>daily problems</i>nya kerja di bidang IT, dan hal-hal yang aku pelajari setiap harinya.
+          </a>,
+          dan eksplorasi homelab yang saya tekuni.
         </p>
         <div class="social-buttons">
           <a class="button" href="https://github.com/lavinske" target="_blank" rel="noopener noreferrer">
@@ -72,3 +81,49 @@ const trainingData = training.map((t) => ({
     </section>
   </div>
 </Layout>
+
+<script is:inline>
+  (function() {
+    const roles = [
+      'Software Engineer',
+      'Systems Architect',
+      'Infrastructure Explorer',
+      'Homelab Builder',
+      'Open Source Enthusiast'
+    ];
+    const el = document.getElementById('hero-typewriter');
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let roleIdx = 0;
+    let charIdx = roles[0].length;
+    let isDeleting = true;
+    let speed = 70;
+
+    function type() {
+      const currentRole = roles[roleIdx];
+
+      if (isDeleting) {
+        charIdx--;
+        el.textContent = currentRole.substring(0, charIdx);
+        speed = 35;
+      } else {
+        charIdx++;
+        el.textContent = currentRole.substring(0, charIdx);
+        speed = 75;
+      }
+
+      if (!isDeleting && charIdx === currentRole.length) {
+        speed = 2200;
+        isDeleting = true;
+      } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        roleIdx = (roleIdx + 1) % roles.length;
+        speed = 400;
+      }
+
+      setTimeout(type, speed);
+    }
+
+    setTimeout(type, 1800);
+  })();
+</script>

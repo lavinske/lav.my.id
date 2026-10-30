@@ -9,13 +9,14 @@ const config = {
   dateFromFormat: 'dd MM YYYY',
   dateFormat: 'dddd, Do MMMM YYYY',
   siteDescription:
-    'Steven Lavinske adalah seorang anak kuliahan biasa.',
+    'Software engineer dan praktisi teknologi. Catatan teknis seputar rekayasa perangkat lunak, arsitektur sistem, Linux, dan otomasi homelab.',
+  siteKeywords: 'Steven Lavinske, Software Engineer, System Architecture, Linux, Homelab, Web Development, Automation, Indonesia',
   siteRss: '/rss.xml',
   googleAnalyticsID: 'UA-42068444-1',
   postDefaultCategoryID: 'Tech',
   newsletter: 'https://lavinske.substack.com',
   newsletterEmbed: 'https://lavinske.substack.com/embed',
-  userName: 'Maxine',
+  userName: 'Steven Lavinske',
   userEmail: 'steven@lav.my.id',
   userTwitter: 'stevenlavinske',
   menuLinks: [

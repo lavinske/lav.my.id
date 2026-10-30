@@ -25,7 +25,14 @@ const thumbnail = resolveThumbnail(frontmatter.thumbnail);
 const date = moment.utc(frontmatter.date).locale('id').format(config.dateFormat);
 const twitterShare = `https://twitter.com/share?text=${encodeURIComponent(frontmatter.title)}&url=${config.siteUrl}/${frontmatter.slug}/`;
 ---
-<Layout title={frontmatter.title} description={frontmatter.description} image={thumbnail} article={isPost}>
+<Layout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  image={thumbnail}
+  article={isPost}
+  publishDate={frontmatter.date}
+  tags={frontmatter.tags}
+>
   {isPost ? (
     <article class="single container">
       <header class={`single-header ${!thumbnail ? 'no-thumbnail' : ''}`}>

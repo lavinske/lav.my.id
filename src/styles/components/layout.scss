@@ -78,6 +78,36 @@
       font-size: 2.5rem;
     }
 
+    .hero-headline {
+      font-size: 2.2rem;
+      letter-spacing: -0.03rem;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      font-weight: 700;
+
+      .hero-greeting {
+        display: block;
+        color: $heading-font-color;
+      }
+
+      .hero-cursor-wrapper {
+        display: inline-block;
+        color: $primary-color;
+        position: relative;
+        font-weight: 700;
+      }
+
+      .hero-cursor {
+        display: inline-block;
+        width: 3px;
+        height: 1.05em;
+        background-color: $primary-color;
+        vertical-align: -0.1em;
+        margin-left: 3px;
+        animation: cursor-blink 1.05s infinite;
+      }
+    }
+
     p {
       font-size: 1.5rem;
       max-width: 550px;
@@ -85,6 +115,29 @@
 
     .button {
       margin-right: 0.5rem;
+    }
+  }
+}
+
+@keyframes cursor-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.dark {
+  .hero-headline {
+    .hero-greeting {
+      color: #ffffff;
+    }
+    .hero-cursor-wrapper {
+      color: #74a1ff;
+    }
+    .hero-cursor {
+      background-color: #74a1ff;
     }
   }
 }
@@ -887,7 +940,7 @@ blockquote {
 
 .avatar {
   max-width: 100px;
-  border-radius: 50%;
+  border-radius: 16px;
   margin-bottom: 1rem;
 }
 
@@ -895,7 +948,7 @@ blockquote {
   width: 35px;
   max-width: 35px;
   height: auto;
-  border-radius: 50%;
+  border-radius: 6px;
   margin-right: 0.75rem;
 }
 
