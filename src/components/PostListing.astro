@@ -1,0 +1,49 @@
+---
+import moment from 'moment';
+import 'moment/locale/id';
+import config from '../config';
+import { resolveThumbnail } from '../utils/posts';
+
+interface Props {
+  posts: any[];
+  simple?: boolean;
+}
+
+const { posts, simple } = Astro.props;
+---
+<section class={`posts ${simple ? 'simple' : ''}`}>
+  {posts.map((post) => {
+    const slug = `/${post.frontmatter.slug}/`;
+    const title = post.frontmatter.title;
+    const date = moment.utc(post.frontmatter.date).locale('id').format(config.dateFormat);
+    const thumbnail = resolveThumbnail(post.frontmatter.thumbnail);
+    const popular = post.frontmatter.categories?.includes('populer');
+    const newest = moment(post.frontmatter.date) > moment().subtract(1, 'months');
+
+    return (
+      <a href={slug}>
+        <div class="each">
+          {thumbnail ? (
+            <img src={thumbnail} alt={title} class="gatsby-image-wrapper" style="width: 50px; height: 50px; object-fit: contain; margin-bottom: 0;" />
+          ) : (
+            <div />
+          )}
+          <div class="each-list-item">
+            <h2>{title}</h2>
+            {!simple && <div class="datetime">{date}</div>}
+          </div>
+          {newest && (
+            <div class="alert">
+              <div class="new">Baru!</div>
+            </div>
+          )}
+          {popular && !simple && !newest && (
+            <div class="alert">
+              <div class="popular">Populer</div>
+            </div>
+          )}
+        </div>
+      </a>
+    );
+  })}
+</section>

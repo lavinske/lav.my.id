@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PostListing from '../components/PostListing.astro';
+import config from '../config';
+import { getPosts } from '../utils/posts';
+
+const posts = getPosts();
+
+const categorySet = new Set();
+posts.forEach((post) => {
+  post.frontmatter?.categories?.forEach((cat) => categorySet.add(cat));
+});
+const categories = Array.from(categorySet);
+---
+<Layout title="Artikel">
+  <div class="container">
+    <h1 class="articles-title">Tulisan-tulisan</h1>
+    <div class="category-container">
+      {categories.map((category) => (
+        <a href={`/categories/${category.toLowerCase()}/`} class="category-filter">
+          {category}
+        </a>
+      ))}
+    </div>
+    <div class="search-container">
+      <input
+        id="search-input"
+        class="search"
+        type="text"
+        placeholder="Cari artikel..."
+      />
+      <div id="filter-count" class="filter-count">{posts.length}</div>
+    </div>
+    <div id="post-list-wrapper">
+      <PostListing posts={posts} />
+    </div>
+  </div>
+</Layout>
+
+<script is:inline>
+  function setupSearch() {
+    const searchInput = document.getElementById('search-input');
+    const countEl = document.getElementById('filter-count');
+    const items = document.querySelectorAll('#post-list-wrapper .each');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        let visible = 0;
+        items.forEach((item) => {
+          const titleEl = item.querySelector('h2');
+          const text = titleEl ? titleEl.textContent.toLowerCase() : '';
+          const link = item.closest('a');
+          if (text.includes(query)) {
+            if (link) link.style.display = '';
+            visible++;
+          } else {
+            if (link) link.style.display = 'none';
+          }
+        });
+        if (countEl) countEl.textContent = visible;
+      });
+    }
+  }
+  setupSearch();
+</script>

@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PostListing from '../../components/PostListing.astro';
+import config from '../../config';
+import { getPosts } from '../../utils/posts';
+import kebabCase from 'lodash.kebabcase';
+
+export async function getStaticPaths() {
+  const posts = getPosts();
+  const tagMap = new Map();
+
+  posts.forEach((post) => {
+    post.frontmatter?.tags?.forEach((t: string) => {
+      const slug = kebabCase(t);
+      if (!tagMap.has(slug)) {
+        tagMap.set(slug, { name: t, posts: [] });
+      }
+      tagMap.get(slug).posts.push(post);
+    });
+  });
+
+  return Array.from(tagMap.entries()).map(([slug, { name, posts }]) => ({
+    params: { tag: slug },
+    props: { tag: name, posts },
+  }));
+}
+
+const { tag, posts } = Astro.props;
+---
+<Layout title={`Posts tagged as "${tag}"`}>
+  <div class="container">
+    <h1>
+      Posts tagged as <u><strong>{tag}</strong></u>
+    </h1>
+    <PostListing posts={posts} />
+  </div>
+</Layout>

@@ -1,0 +1,24 @@
+---
+interface Props {
+  data: any[];
+}
+
+const { data } = Astro.props;
+---
+<section class="simple-posts">
+  {data.map((item) => {
+    const imgSrc = typeof item.img === 'string' && item.img.startsWith('/') 
+      ? item.img 
+      : (item.img?.src || item.img || '/thumbnails/certificate.png');
+    return (
+      <a href={item.path} target="_blank" rel="noopener noreferrer">
+        <div class="each">
+          <h2>
+            <img src={imgSrc} alt={item.title} style="width: 28px; height: 28px; object-fit: contain; margin-right: 0.75rem;" />
+            {item.title}
+          </h2>
+        </div>
+      </a>
+    );
+  })}
+</section>

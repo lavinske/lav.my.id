@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PostListing from '../components/PostListing.astro';
+import ProjectListing from '../components/ProjectListing.astro';
+import SimpleListing from '../components/SimpleListing.astro';
+import config from '../config';
+import projects from '../../data/projects';
+import training from '../../data/training';
+import { getPosts, getPopularPosts } from '../utils/posts';
+
+const allPosts = getPosts();
+const latestPosts = allPosts.slice(0, 5);
+const popularPosts = getPopularPosts().slice(0, 9);
+
+const trainingData = training.map((t) => ({
+  ...t,
+  img: typeof t.img === 'string' ? t.img.replace(/^.*\/thumbnails\//, '/thumbnails/') : '/thumbnails/certificate.png',
+}));
+---
+<Layout title="Catatan Harian">
+  <div class="container">
+    <div class="lead">
+      <div class="elevator">
+        <h1>Halo, Saya Steven</h1>
+        <p>
+          Anak kuliahan dari Bandung, demen ngoprek project{' '}
+          <a href="https://github.com/lavinske" target="_blank" rel="noopener noreferrer">
+            open source
+          </a>{' '}
+          dan <i>mostly</i> <a href="/blog/">nulis</a> tentang development web kekinian,{' '}
+          <i>daily problems</i>nya kerja di bidang IT, dan hal-hal yang aku pelajari setiap harinya.
+        </p>
+        <div class="social-buttons">
+          <a class="button" href="https://github.com/lavinske" target="_blank" rel="noopener noreferrer">
+            GitHub @lavinske
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container front-page">
+    <section class="section">
+      <h2>
+        Tulisan Terbaru
+        <a href="/blog/" class="view-all">Lihat Semua</a>
+      </h2>
+      <PostListing simple posts={latestPosts} />
+    </section>
+
+    {popularPosts.length > 0 && (
+      <section class="section">
+        <h2>
+          Tulisan Terpopuler
+          <a href="/categories/populer/" class="view-all">Lihat Semua</a>
+        </h2>
+        <PostListing simple posts={popularPosts} />
+      </section>
+    )}
+
+    <section class="section">
+      <h2>Project</h2>
+      <ProjectListing projects={projects} />
+    </section>
+
+    <section class="section">
+      <h2>
+        Pelatihan dan Sertifikasi
+        <a href="/training/" class="view-all">Lihat Semua</a>
+      </h2>
+      <SimpleListing data={trainingData} />
+    </section>
+  </div>
+</Layout>

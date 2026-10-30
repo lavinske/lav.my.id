@@ -1,0 +1,3 @@
+User-agent: *
+
+sitemap: https://lav.my.id/sitemap.xml

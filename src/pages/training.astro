@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import config from '../config';
+import training from '../../data/training_all';
+
+const logoMap: Record<string, string> = {
+  Qwiklabs: '/thumbnails/qwiklabs.png',
+  Coursera: '/thumbnails/coursera.png',
+  'International CyberSecurity Institute': '/thumbnails/icsi.png',
+};
+
+const companyStr = Object.keys(logoMap)
+  .join(', ')
+  .replace(/, ([^,]*)$/, ' dan $1');
+
+const pubs = Object.entries(training);
+---
+<Layout title="Training dan Sertifikasi">
+  <div class="container">
+    <header class="page-header">
+      <h1>Pelatihan dan Sertifikasi</h1>
+    </header>
+    <div class="page">
+      <p>Aku sudah mengikuti pelatihan di {companyStr}.</p>
+      {pubs.map(([company, certificates]: [string, any]) => (
+        <article>
+          <h2 class="training-company" id={company.replace(/\s/g, '')}>
+            {logoMap[company] && <img src={logoMap[company]} alt="Lembaga Training" />}
+            {company}
+          </h2>
+          <ul>
+            {certificates.map((cert: any) => (
+              <li>
+                <a href={cert.path} target="_blank" rel="noopener noreferrer">
+                  {cert.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</Layout>

@@ -2,20 +2,38 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Netlify Status](https://api.netlify.com/api/v1/badges/61bc2cd7-6d96-4d3b-ab5f-78b1ccb2d8f9/deploy-status)](https://app.netlify.com/sites/lavinske/deploys)
 
-Maxine's personal website running on Gatsby, React, and Node.js.
+Personal website and blog running on [Astro](https://astro.build), Markdown, and Node.js.
 
-**Note from TaniaRascia**: The source for this site was not created to be a template or theme, but for my own use. Feel free to take whatever inspiration from it that you want, but this code was not written with the intention of being, cloned and deployed. As such, I do not provide support or guidance for doing that. I recommend using the [Gatsby Advanced Starter](https://github.com/vagr9k/gatsby-advanced-starter/) to set up a blog or an existing theme created for that purpose.
+## Features
+
+- Fast static site generation with Astro (zero client-side JS overhead by default)
+- Markdown post processing with syntax highlighting
+- Clean light & dark theme toggle with instant persistence
+- Linktree-style directory at `/link/`
+- Full taxonomy support (Categories, Tags)
+- Integrated RSS feed (`/rss.xml`) and Sitemap (`/sitemap-index.xml`)
+- Automated deployments via Netlify
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start local dev server
+npm run dev
+
+# Build production static bundle
+npm run build
+```
 
 ## Acknowledgements
 
-- Ruben Harutyunyan - [Gatsby Advanced Starter](https://github.com/vagr9k/gatsby-advanced-starter/)
-- Muhammad Muhsin - [Using React Context API with Gatsby](https://www.gatsbyjs.org/blog/2019-01-31-using-react-context-api-with-gatsby/)
-- Thomas Frössman - [ExitWP](https://github.com/thomasf/exitwp) - WordPress XML to Markdown
-- Tania Rascia - [Theme, Engine Scratch](https://github.com/taniarascia/taniarascia.com) - This Blog Gatsby Engine and Theme
+- Tania Rascia - Original design inspiration & CSS baseline ([taniarascia.com](https://github.com/taniarascia/taniarascia.com))
+- [Astro](https://astro.build)
 
 ## Author
 
-- [Tania Rascia](https://www.taniarascia.com)
 - [Steven Lavinske](https://lav.my.id)
 
 ## License

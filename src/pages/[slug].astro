@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import UserInfo from '../components/UserInfo.astro';
+import PostTags from '../components/PostTags.astro';
+import Comments from '../components/Comments.astro';
+import config from '../config';
+import { getAllContent, resolveThumbnail } from '../utils/posts';
+import moment from 'moment';
+import 'moment/locale/id';
+
+export async function getStaticPaths() {
+  const all = getAllContent();
+  const valid = all.filter((item) => item.frontmatter?.slug && item.frontmatter.slug !== 'kontak');
+  return valid.map((item) => ({
+    params: { slug: item.frontmatter.slug },
+    props: { entry: item },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = entry;
+const { frontmatter } = entry;
+const isPost = frontmatter.template === 'post';
+const thumbnail = resolveThumbnail(frontmatter.thumbnail);
+const date = moment.utc(frontmatter.date).locale('id').format(config.dateFormat);
+const twitterShare = `https://twitter.com/share?text=${encodeURIComponent(frontmatter.title)}&url=${config.siteUrl}/${frontmatter.slug}/`;
+---
+<Layout title={frontmatter.title} description={frontmatter.description} image={thumbnail} article={isPost}>
+  {isPost ? (
+    <article class="single container">
+      <header class={`single-header ${!thumbnail ? 'no-thumbnail' : ''}`}>
+        {thumbnail && (
+          <img src={thumbnail} alt={frontmatter.title} class="gatsby-image-wrapper" style="width: 150px; height: 150px; object-fit: contain; margin-bottom: 0;" />
+        )}
+        <div class="flex">
+          <h1>{frontmatter.title}</h1>
+          <div class="post-meta">
+            <a href="/saya/">
+              <img src="/images/maxine.jpg" class="avatar-small" alt="Maxine" />
+            </a>
+            <time class="date">{date}</time>/
+            <a
+              class="twitter-link"
+              href={twitterShare}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Bagikan
+            </a>
+          </div>
+          <PostTags tags={frontmatter.tags} />
+        </div>
+      </header>
+
+      <div class="post">
+        <Content />
+      </div>
+    </article>
+    <UserInfo />
+    <div class="container">
+      <Comments />
+    </div>
+  ) : (
+    <div class="container">
+      <article>
+        <header class="page-header">
+          <h1>{frontmatter.title}</h1>
+        </header>
+        <div class="page">
+          <Content />
+        </div>
+      </article>
+    </div>
+  )}
+</Layout>

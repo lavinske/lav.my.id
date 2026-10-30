@@ -1,0 +1,74 @@
+---
+import config from '../config';
+const pathname = Astro.url.pathname;
+---
+<nav id="navbar" class="nav">
+  <div class="nav-container">
+    <div class="brand">
+      <a href="/">
+        <img src="/logos/hd_smol.png" class="favicon" alt="My Logo" />
+        <span class="text">{config.siteTitle}</span>
+      </a>
+    </div>
+    <div class="links">
+      {config.menuLinks.map((link) => {
+        const isActive = pathname === link.link || (link.link !== '/' && pathname.startsWith(link.link));
+        return (
+          <a href={link.link} class={isActive ? 'active' : ''}>
+            {link.name}
+          </a>
+        );
+      })}
+    </div>
+    <div class="cta">
+      <button
+        id="theme-toggle"
+        class="dark-switcher"
+        aria-label="Toggle Dark Mode"
+        title="Toggle Dark Mode"
+      >
+        <img src="/sun.svg" class="theme-icon sun-icon" alt="Light Mode" />
+        <img src="/moon.svg" class="theme-icon moon-icon" alt="Dark Mode" />
+      </button>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .sun-icon {
+    display: none;
+  }
+  .moon-icon {
+    display: block;
+  }
+  :global(body.dark) .sun-icon {
+    display: block;
+  }
+  :global(body.dark) .moon-icon {
+    display: none;
+  }
+</style>
+
+<script is:inline>
+  function setupNav() {
+    const nav = document.getElementById('navbar');
+    if (nav) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+          nav.classList.add('scroll');
+        } else {
+          nav.classList.remove('scroll');
+        }
+      });
+    }
+
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark');
+        localStorage.setItem('dark', isDark ? 'true' : 'false');
+      });
+    }
+  }
+  setupNav();
+</script>

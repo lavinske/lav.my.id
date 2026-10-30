@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Page not found">
+  <div class="container not-found-page">
+    <div class="text-center">
+      <h1>404</h1>
+    </div>
+    <p>
+      A fatal exception 0E has occurred at <span class="maxine">0x6d6178696e65</span> in 404:
+      page not found.
+    </p>
+    <div class="list">
+      <p>
+        <span class="bullet">*</span> Klik tautan apapun untuk kembali ke beranda.
+      </p>
+      <p>
+        <span class="bullet">*</span> Halaman yang kamu cari mungkin telah dipindahkan atau dihapus.
+      </p>
+    </div>
+    <p class="text-right">
+      <a href="/" style="text-decoration: none; color: inherit;">
+        Klik disini untuk kembali ke beranda<span class="blink">&#9608;</span>
+      </a>
+    </p>
+  </div>
+</Layout>
+
+<script is:inline>
+  document.body.classList.add('not-found');
+</script>

@@ -1,0 +1,34 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PostListing from '../../components/PostListing.astro';
+import config from '../../config';
+import { getPosts } from '../../utils/posts';
+
+export async function getStaticPaths() {
+  const posts = getPosts();
+  const catMap = new Map();
+
+  posts.forEach((post) => {
+    post.frontmatter?.categories?.forEach((c: string) => {
+      const slug = c.toLowerCase();
+      if (!catMap.has(slug)) {
+        catMap.set(slug, { name: c, posts: [] });
+      }
+      catMap.get(slug).posts.push(post);
+    });
+  });
+
+  return Array.from(catMap.entries()).map(([slug, { name, posts }]) => ({
+    params: { category: slug },
+    props: { category: name, posts },
+  }));
+}
+
+const { category, posts } = Astro.props;
+---
+<Layout title={`Posts in category "${category}"`}>
+  <div class="container">
+    <h1>{category}</h1>
+    <PostListing posts={posts} />
+  </div>
+</Layout>

@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+import config from '../config';
+
+const links = [
+  {
+    title: 'Blog / Artikel',
+    description: 'Kumpulan artikel dan tulisan teknologi',
+    url: '/blog/',
+    internal: true,
+    icon: '📝',
+  },
+  {
+    title: 'LinkedIn',
+    description: 'Profil profesional dan karier',
+    url: 'https://go.tell.my.id/lin',
+    internal: false,
+    icon: '💼',
+  },
+  {
+    title: 'GitHub',
+    description: 'Repositori open source dan proyek',
+    url: 'https://go.tell.my.id/github',
+    internal: false,
+    icon: '💻',
+  },
+  {
+    title: 'Email',
+    description: 'Kontak dan pesan langsung',
+    url: 'https://go.tell.my.id/mail',
+    internal: false,
+    icon: '✉️',
+  },
+];
+---
+<Layout title="Tautan">
+  <div class="container">
+    <div class="linktree-container">
+      <header class="linktree-header">
+        <img src="/logos/hd.png" alt={config.siteTitle} class="linktree-avatar" />
+        <h1>{config.siteTitle}</h1>
+        <p class="linktree-tagline">{config.siteDescription}</p>
+      </header>
+
+      <ul class="linktree-list">
+        {links.map((item) => (
+          <li class="linktree-item">
+            {item.internal ? (
+              <a href={item.url} class="linktree-card">
+                <div class="linktree-card-left">
+                  <span class="linktree-icon">{item.icon}</span>
+                  <div class="linktree-text">
+                    <span class="linktree-title">{item.title}</span>
+                    <span class="linktree-desc">{item.description}</span>
+                  </div>
+                </div>
+                <span class="linktree-arrow">→</span>
+              </a>
+            ) : (
+              <a
+                href={item.url}
+                class="linktree-card"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div class="linktree-card-left">
+                  <span class="linktree-icon">{item.icon}</span>
+                  <div class="linktree-text">
+                    <span class="linktree-title">{item.title}</span>
+                    <span class="linktree-desc">{item.description}</span>
+                  </div>
+                </div>
+                <span class="linktree-arrow">↗</span>
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</Layout>
