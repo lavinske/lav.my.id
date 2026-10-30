@@ -18,7 +18,7 @@ export default class Footer extends Component {
           </a>
         </div>
         <div>
-          <a href="https://tell.my.id/lin" title="View my LinkedIn" target="_blank" rel="noopener noreferrer">
+          <a href="https://go.tell.my.id/lin" title="View my LinkedIn" target="_blank" rel="noopener noreferrer">
             <img
               src={linkedin}
               className="footer-img"

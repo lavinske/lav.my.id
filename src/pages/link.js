@@ -17,7 +17,7 @@ const links = [
   {
     title: 'LinkedIn',
     description: 'Profil profesional dan karier',
-    url: 'https://tell.my.id/lin',
+    url: 'https://go.tell.my.id/lin',
     internal: false,
     icon: '💼',
   },
