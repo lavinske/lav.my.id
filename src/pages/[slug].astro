@@ -4,7 +4,7 @@ import UserInfo from '../components/UserInfo.astro';
 import PostTags from '../components/PostTags.astro';
 import Comments from '../components/Comments.astro';
 import config from '../config';
-import { getAllContent, resolveThumbnail } from '../utils/posts';
+import { getAllContent, resolveThumbnail, getReadingTime } from '../utils/posts';
 import moment from 'moment';
 import 'moment/locale/id';
 
@@ -23,6 +23,7 @@ const { frontmatter } = entry;
 const isPost = frontmatter.template === 'post';
 const thumbnail = resolveThumbnail(frontmatter.thumbnail);
 const date = moment.utc(frontmatter.date).locale('id').format(config.dateFormat);
+const readingTime = getReadingTime(entry);
 const twitterShare = `https://twitter.com/share?text=${encodeURIComponent(frontmatter.title)}&url=${config.siteUrl}/${frontmatter.slug}/`;
 ---
 <Layout
@@ -46,6 +47,7 @@ const twitterShare = `https://twitter.com/share?text=${encodeURIComponent(frontm
               <img src="/images/maxine.jpg" class="avatar-small" alt="Maxine" />
             </a>
             <time class="date">{date}</time>/
+            <span class="read-time">{readingTime}</span>/
             <a
               class="twitter-link"
               href={twitterShare}

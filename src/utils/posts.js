@@ -31,3 +31,29 @@ export function formatDate(dateStr) {
   if (!dateStr) return '';
   return moment(dateStr).format('Do MMMM YYYY');
 }
+
+export function getReadingTime(entryOrText) {
+  let text = '';
+  if (typeof entryOrText === 'string') {
+    text = entryOrText;
+  } else if (entryOrText && typeof entryOrText.rawContent === 'function') {
+    text = entryOrText.rawContent();
+  } else if (entryOrText && typeof entryOrText.compiledContent === 'function') {
+    text = entryOrText.compiledContent();
+  } else if (entryOrText && entryOrText.body) {
+    text = entryOrText.body;
+  }
+
+  // Remove frontmatter if present
+  const body = text.replace(/^---[\s\S]*?---/, '');
+  // Clean markdown tags and code fences
+  const clean = body
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/`[^`]+`/g, ' ')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+
+  const words = clean.trim().split(/\s+/).filter(Boolean).length;
+  const minutes = Math.max(1, Math.ceil(words / 200));
+  return `${minutes} min read`;
+}
