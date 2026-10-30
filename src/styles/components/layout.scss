@@ -79,30 +79,36 @@
     }
 
     .hero-headline {
-      font-size: 2.2rem;
-      letter-spacing: -0.03rem;
-      line-height: 1.25;
       margin-bottom: 1rem;
-      font-weight: 700;
 
       .hero-greeting {
-        display: block;
+        font-size: 2.6rem;
+        font-weight: 700;
+        letter-spacing: -0.03rem;
+        line-height: 1.15;
+        margin: 0 0 0.4rem 0;
         color: $heading-font-color;
+        border-bottom: none;
+        padding-bottom: 0;
       }
 
       .hero-cursor-wrapper {
         display: inline-block;
+        font-size: 1.25rem;
+        font-weight: 600;
+        letter-spacing: -0.01rem;
+        line-height: 1.4;
         color: $primary-color;
         position: relative;
-        font-weight: 700;
+        margin-bottom: 0.5rem;
       }
 
       .hero-cursor {
         display: inline-block;
-        width: 3px;
-        height: 1.05em;
+        width: 2.5px;
+        height: 1.1em;
         background-color: $primary-color;
-        vertical-align: -0.1em;
+        vertical-align: -0.15em;
         margin-left: 3px;
         animation: cursor-blink 1.05s infinite;
       }

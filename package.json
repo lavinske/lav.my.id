@@ -5,7 +5,7 @@
   "author": "Steven Lavinske",
   "repository": "git@github.com:lavinske/lav.my.id",
   "scripts": {
-    "prebuild": "mkdir -p public && cp -r static/* public/ 2>/dev/null || true; mkdir -p public/thumbnails && cp -r content/thumbnails/* public/thumbnails/ 2>/dev/null || true; mkdir -p public/images && cp -r content/images/* public/images/ 2>/dev/null || true",
+    "prebuild": "mkdir -p public/thumbnails public/images && cp -r content/thumbnails/* public/thumbnails/ 2>/dev/null || true; cp -r content/images/* public/images/ 2>/dev/null || true",
     "dev": "npm run prebuild && astro dev",
     "start": "npm run dev",
     "build": "npm run prebuild && astro build",

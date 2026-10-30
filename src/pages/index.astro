@@ -24,20 +24,18 @@ const trainingData = training.map((t) => ({
   <div class="container">
     <div class="lead">
       <div class="elevator">
-        <h1 class="hero-headline">
-          <span class="hero-greeting">Halo, saya Steven.</span>
-          <span class="hero-cursor-wrapper">
-            <span id="hero-typewriter">Software Engineer</span>
-            <span class="hero-cursor" aria-hidden="true"></span>
-          </span>
-        </h1>
+        <div class="hero-headline">
+          <h1 class="hero-greeting">Hey, saya Steven!</h1>
+          <div>
+            <span class="hero-cursor-wrapper">
+              <span id="hero-typewriter">Systems Administrator</span>
+              <span class="hero-cursor" aria-hidden="true"></span>
+            </span>
+          </div>
+        </div>
         <p>
-          Software engineer yang berfokus pada arsitektur sistem, automasi infrastruktur, dan pengembangan web.
-          Di sini saya menulis catatan teknis, dokumentasi project{' '}
-          <a href="https://github.com/lavinske" target="_blank" rel="noopener noreferrer">
-            open source
-          </a>,
-          dan eksplorasi homelab yang saya tekuni.
+          Systems Administrator di bank swasta terbesar di Indonesia, sekaligus developer dan technology enthusiast.
+          Di web ini saya mencatat dokumentasi sistem, project open source, dan hal-hal yang saya pelajari setiap harinya.
         </p>
         <div class="social-buttons">
           <a class="button" href="https://github.com/lavinske" target="_blank" rel="noopener noreferrer">
@@ -85,11 +83,11 @@ const trainingData = training.map((t) => ({
 <script is:inline>
   (function() {
     const roles = [
-      'Software Engineer',
-      'Systems Architect',
-      'Infrastructure Explorer',
-      'Homelab Builder',
-      'Open Source Enthusiast'
+      'Systems Administrator @ Largest Private Bank',
+      'Software Developer',
+      'Technology Enthusiast',
+      'Homelab & Embedded Linux Builder',
+      'Infrastructure Architect'
     ];
     const el = document.getElementById('hero-typewriter');
     if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
