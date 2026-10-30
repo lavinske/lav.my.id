@@ -1,5 +1,7 @@
 [build]
   publish = "public"
-  command = "yarn run build"
+  command = "NODE_OPTIONS=--openssl-legacy-provider yarn run build"
 [build.environment]
-  YARN_VERSION = "1.16.0"
+  NODE_VERSION = "20"
+  YARN_VERSION = "1.22.22"
+  NODE_OPTIONS = "--openssl-legacy-provider"
