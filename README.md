@@ -91,7 +91,15 @@ npm run preview
 
 ---
 
+## 🙏 Acknowledgements & Attribution
+
+- **[Tania Rascia](https://github.com/taniarascia)** ([taniarascia.com](https://github.com/taniarascia/taniarascia.com) / [tania.dev](https://tania.dev)): Sincere appreciation and gratitude to Tania Rascia for the original design inspiration, clean CSS architecture, and typography foundations adapted from her open-source personal website.
+- **[Astro](https://astro.build)**: For the modern, zero-JS static site generation engine.
+
+---
+
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
-Original theme baseline inspired by Tania Rascia.
+- Copyright (c) 2019-2026 Steven Lavinske
+- Original design & theme foundations Copyright (c) 2019 Tania Rascia
