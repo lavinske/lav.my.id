@@ -61,3 +61,12 @@ dist/
 
 # Bundle stats
 bundle-stats.json
+
+# Environment and secrets
+.env
+.env.*
+*.key
+*.pem
+*.pfx
+credentials
+.git-credentials
