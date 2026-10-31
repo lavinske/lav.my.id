@@ -167,21 +167,39 @@ const jsonLd = article
         updateProgress();
       }
 
-      // 2. Interactive Floating Copy Button on all <pre> elements (Astro Docs style)
+      // 2. Interactive Code Block Header with Language Tag & Floating Copy Button (Astro Docs style)
       document.querySelectorAll('pre').forEach((pre) => {
         if (pre.parentNode.classList.contains('code-block-wrapper')) return;
 
         const wrapper = document.createElement('div');
         wrapper.className = 'code-block-wrapper';
         pre.parentNode.insertBefore(wrapper, pre);
-        wrapper.appendChild(pre);
+
+        // Detect language from data-language, code class, or default
+        let lang = pre.getAttribute('data-language') || '';
+        if (!lang) {
+          const code = pre.querySelector('code');
+          if (code && code.className) {
+            const match = code.className.match(/language-(\w+)/);
+            if (match) lang = match[1];
+          }
+        }
+        if (!lang) lang = 'code';
+
+        const header = document.createElement('div');
+        header.className = 'code-block-header';
+
+        const langSpan = document.createElement('span');
+        langSpan.className = 'code-block-lang';
+        langSpan.textContent = lang.toUpperCase();
+        header.appendChild(langSpan);
 
         const btn = document.createElement('button');
         btn.className = 'copy-code-btn';
         btn.setAttribute('type', 'button');
         btn.setAttribute('aria-label', 'Salin kode ke clipboard');
         btn.setAttribute('title', 'Salin kode');
-        btn.innerHTML = `<svg class="copy-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><span class="copy-tooltip">Disalin!</span>`;
+        btn.innerHTML = `<svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span class="copy-tooltip">Disalin!</span>`;
 
         btn.addEventListener('click', async () => {
           const codeEl = pre.querySelector('code');
@@ -196,7 +214,7 @@ const jsonLd = article
             setTimeout(() => {
               btn.classList.remove('copied');
               if (icon) {
-                icon.innerHTML = `<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>`;
+                icon.innerHTML = `<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>`;
               }
             }, 2000);
           } catch (e) {
@@ -204,7 +222,9 @@ const jsonLd = article
           }
         });
 
-        wrapper.appendChild(btn);
+        header.appendChild(btn);
+        wrapper.appendChild(header);
+        wrapper.appendChild(pre);
       });
     </script>
   </body>

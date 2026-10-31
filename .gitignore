@@ -62,6 +62,10 @@ dist/
 # Bundle stats
 bundle-stats.json
 
+# IDE & Editors
+.vscode/
+.idea/
+
 # Environment and secrets
 .env
 .env.*
