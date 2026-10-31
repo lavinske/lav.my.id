@@ -10,7 +10,12 @@ interface Props {
 }
 
 const { headings = [] } = Astro.props;
-const filtered = headings.filter((h) => h.depth === 2 || h.depth === 3);
+// h1 is the page title (rendered separately); h5/h6 too granular for nav.
+// Indent is computed (--lvl), so widening this range needs no CSS change.
+const filtered = headings.filter((h) => h.depth >= 2 && h.depth <= 4);
+// Indent relative to shallowest heading present, so any level mix starts flush-left.
+const minDepth = Math.min(...filtered.map((h) => h.depth));
+const lvl = (h: HeadingItem) => `--lvl:${h.depth - minDepth}`;
 
 function cleanHeadingText(text: string) {
   // Strip numeric prefixes like "1. ", "2. ", "1) " for clean sleek indentation
@@ -38,7 +43,7 @@ function cleanHeadingText(text: string) {
           <div class="mobile-toc-dropdown">
             <ul class="mobile-toc-list">
               {filtered.map((heading) => (
-                <li class={`mobile-toc-item depth-${heading.depth}`}>
+                <li class={`mobile-toc-item depth-${heading.depth}`} style={lvl(heading)}>
                   <a href={`#${heading.slug}`} class="mobile-toc-link" data-slug={heading.slug} data-title={cleanHeadingText(heading.text)}>
                     <span class="mobile-toc-check" aria-hidden="true">✓</span>
                     <span class="mobile-toc-text">{cleanHeadingText(heading.text)}</span>
@@ -56,7 +61,7 @@ function cleanHeadingText(text: string) {
       <div class="toc-title">Daftar Isi</div>
       <ul class="toc-menu">
         {filtered.map((heading) => (
-          <li class={`toc-menu-item depth-${heading.depth}`}>
+          <li class={`toc-menu-item depth-${heading.depth}`} style={lvl(heading)}>
             <a href={`#${heading.slug}`} class="toc-link" data-slug={heading.slug} data-title={cleanHeadingText(heading.text)}>
               {cleanHeadingText(heading.text)}
             </a>
@@ -265,12 +270,7 @@ function cleanHeadingText(text: string) {
               content: none !important;
             }
 
-            &.depth-2 {
-              padding-left: 0;
-            }
-            &.depth-3 {
-              padding-left: 1.25rem;
-            }
+            padding-left: calc(var(--lvl, 0) * 1.25rem);
 
             .mobile-toc-link {
               display: flex;
@@ -416,12 +416,7 @@ function cleanHeadingText(text: string) {
             content: none !important;
           }
 
-          &.depth-2 {
-            padding-left: 0;
-          }
-          &.depth-3 {
-            padding-left: 1rem;
-          }
+          padding-left: calc(var(--lvl, 0) * 1rem);
 
           .toc-link {
             display: block;
