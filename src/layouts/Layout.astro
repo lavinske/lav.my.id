@@ -112,16 +112,17 @@ const jsonLd = article
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-    <!-- Prevent flash of unstyled theme -->
+    <!-- System-first Theme Detection & Persistence -->
     <script is:inline>
       (function() {
         try {
-          const dark = localStorage.getItem('dark');
+          const stored = localStorage.getItem('theme') || localStorage.getItem('dark');
           const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          if (dark === 'true' || (dark === null && prefersDark)) {
+          const isDark = stored ? stored === 'dark' || stored === 'true' : prefersDark;
+          if (isDark) {
             document.documentElement.classList.add('dark');
-          } else if (dark === 'false') {
-            document.documentElement.classList.add('dark-explicit-light');
+          } else {
+            document.documentElement.classList.remove('dark');
           }
         } catch (e) {}
       })();
