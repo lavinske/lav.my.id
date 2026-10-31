@@ -7,61 +7,35 @@ interface HeadingItem {
 
 interface Props {
   headings: HeadingItem[];
-  mobile?: boolean;
 }
 
-const { headings = [], mobile = false } = Astro.props;
+const { headings = [] } = Astro.props;
 const filtered = headings.filter((h) => h.depth === 2 || h.depth === 3);
+
+function cleanHeadingText(text: string) {
+  // Strip leading numbers like "1. ", "2. ", "1) " for sleek indentation
+  return text.replace(/^\d+[\.\)]\s*/, '').trim();
+}
 ---
 
 {filtered.length >= 2 && (
-  mobile ? (
-    <nav class="toc-mobile" aria-label="Daftar Isi">
-      <details class="toc-mobile-details">
-        <summary class="toc-mobile-summary">
-          <span class="toc-mobile-title">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="8" y1="6" x2="21" y2="6"></line>
-              <line x1="8" y1="12" x2="21" y2="12"></line>
-              <line x1="8" y1="18" x2="21" y2="18"></line>
-              <line x1="3" y1="6" x2="3.01" y2="6"></line>
-              <line x1="3" y1="12" x2="3.01" y2="12"></line>
-              <line x1="3" y1="18" x2="3.01" y2="18"></line>
-            </svg>
-            Daftar Isi
-          </span>
-          <span class="toc-caret">▾</span>
-        </summary>
-        <ul class="toc-mobile-list">
-          {filtered.map((heading) => (
-            <li class={`toc-item depth-${heading.depth}`}>
-              <a href={`#${heading.slug}`}>{heading.text}</a>
-            </li>
-          ))}
-        </ul>
-      </details>
-    </nav>
-  ) : (
-    <nav class="toc-sidebar" aria-label="Daftar Isi Halaman">
-      <div class="toc-header">
-        <span class="toc-sidebar-title">Daftar Isi</span>
-      </div>
-      <ul class="toc-sidebar-list">
-        {filtered.map((heading) => (
-          <li class={`toc-sidebar-item depth-${heading.depth}`}>
-            <a href={`#${heading.slug}`} class="toc-link" data-slug={heading.slug}>
-              {heading.text}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  )
+  <nav class="toc-floating-widget" aria-label="Daftar Isi">
+    <div class="toc-title">Daftar Isi</div>
+    <ul class="toc-menu">
+      {filtered.map((heading) => (
+        <li class={`toc-menu-item depth-${heading.depth}`}>
+          <a href={`#${heading.slug}`} class="toc-link" data-slug={heading.slug}>
+            {cleanHeadingText(heading.text)}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
 )}
 
 <script is:inline>
   (function() {
-    const links = document.querySelectorAll('.toc-sidebar .toc-link');
+    const links = document.querySelectorAll('.toc-floating-widget .toc-link');
     if (!links.length) return;
 
     const headingEls = [];
@@ -91,172 +65,92 @@ const filtered = headings.filter((h) => h.depth === 2 || h.depth === 3);
 </script>
 
 <style lang="scss">
-  // Desktop Right Sidebar TOC (Astro Docs style)
-  .toc-sidebar {
-    padding: 0.5rem 0 1rem;
-    font-size: 0.85rem;
-
-    .toc-header {
-      margin-bottom: 0.75rem;
-
-      .toc-sidebar-title {
-        font-size: 0.72rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: #64748b;
-      }
-    }
-
-    .toc-sidebar-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      border-left: 1px solid #e2e8f0;
-
-      .toc-sidebar-item {
-        margin: 0;
-        line-height: 1.45;
-
-        .toc-link {
-          display: block;
-          padding: 0.35rem 0 0.35rem 0.85rem;
-          color: #64748b;
-          text-decoration: none;
-          border-left: 2px solid transparent;
-          margin-left: -1px;
-          transition: all 0.15s ease;
-
-          &:hover {
-            color: #2b5b84;
-            border-left-color: #2b5b84;
-          }
-
-          &.active {
-            color: #2b5b84;
-            font-weight: 600;
-            border-left-color: #2b5b84;
-          }
-        }
-
-        &.depth-3 .toc-link {
-          padding-left: 1.5rem;
-          font-size: 0.8rem;
-        }
-      }
-    }
+  .toc-floating-widget {
+    display: none;
   }
 
-  // Mobile Inline TOC
-  .toc-mobile {
-    margin: 1.5rem 0;
-    padding: 0.75rem 1rem;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    font-size: 0.9rem;
+  // Floating widget on right side only when viewport allows (keeps article centered)
+  @media (min-width: 1260px) {
+    .toc-floating-widget {
+      display: block;
+      position: fixed;
+      top: 130px;
+      left: calc(50% + 425px);
+      width: 220px;
+      max-height: calc(100vh - 160px);
+      overflow-y: auto;
+      z-index: 50;
+      scrollbar-width: none;
 
-    .toc-mobile-details {
-      summary {
-        list-style: none;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        user-select: none;
-
-        &::-webkit-details-marker {
-          display: none;
-        }
-
-        .toc-mobile-title {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          font-weight: 600;
-          color: #1e293b;
-        }
-
-        .toc-caret {
-          color: #64748b;
-          transition: transform 0.2s ease;
-        }
+      &::-webkit-scrollbar {
+        display: none;
       }
 
-      &[open] summary .toc-caret {
-        transform: rotate(180deg);
-      }
-    }
-
-    .toc-mobile-list {
-      list-style: none;
-      margin: 0.75rem 0 0;
-      padding: 0;
-
-      .toc-item {
-        margin: 0.35rem 0;
-
-        &.depth-3 {
-          padding-left: 1rem;
-          font-size: 0.85rem;
-        }
-
-        a {
-          color: #475569;
-          text-decoration: none;
-
-          &:hover {
-            color: #2b5b84;
-            text-decoration: underline;
-          }
-        }
-      }
-    }
-  }
-
-  // Dark Theme
-  :global(.dark) {
-    .toc-sidebar {
-      .toc-header .toc-sidebar-title {
-        color: #94a3b8;
+      .toc-title {
+        font-size: 0.825rem;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 0.75rem;
+        letter-spacing: -0.01em;
       }
 
-      .toc-sidebar-list {
-        border-left-color: #243442;
+      .toc-menu {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
 
-        .toc-sidebar-item .toc-link {
-          color: #94a3b8;
+        .toc-menu-item {
+          list-style: none !important;
+          margin: 0.35rem 0;
+          line-height: 1.45;
 
-          &:hover {
-            color: #88c0d0;
-            border-left-color: #88c0d0;
+          &::before {
+            display: none !important;
+            content: none !important;
           }
 
-          &.active {
-            color: #88c0d0;
-            border-left-color: #88c0d0;
+          &.depth-3 {
+            padding-left: 0.9rem;
+          }
+
+          .toc-link {
+            display: block;
+            color: #64748b;
+            font-size: 0.8125rem;
+            text-decoration: none;
+            transition: color 0.15s ease;
+            border: none !important;
+            font-weight: 400 !important;
+
+            &:hover {
+              color: #2b5b84;
+              text-decoration: none;
+            }
+
+            &.active {
+              color: #2b5b84 !important;
+              font-weight: 400 !important;
+              border: none !important;
+            }
           }
         }
       }
     }
 
-    .toc-mobile {
-      background: #192530;
-      border-color: #2b3b49;
-
-      .toc-mobile-details summary .toc-mobile-title {
+    :global(.dark) .toc-floating-widget {
+      .toc-title {
         color: #f1f5f9;
       }
 
-      .toc-mobile-details summary .toc-caret {
-        color: #94a3b8;
-      }
-
-      .toc-mobile-list .toc-item a {
+      .toc-menu .toc-menu-item .toc-link {
         color: #94a3b8;
 
         &:hover {
           color: #88c0d0;
+        }
+
+        &.active {
+          color: #88c0d0 !important;
         }
       }
     }
