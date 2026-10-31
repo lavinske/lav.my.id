@@ -1,7 +1,7 @@
 const config = {
   siteTitle: 'Steven Lavinske',
   siteTitleShort: 'Maxine',
-  siteTitleAlt: 'Maxine',
+  siteTitleAlt: 'Steven Lavinske – Catatan Harian & Learning Journey',
   siteLogo: '/logos/hd.png',
   siteUrl: 'https://www.lav.my.id',
   repo: 'https://github.com/lavinske/lav.my.id',
@@ -9,8 +9,8 @@ const config = {
   dateFromFormat: 'dd MM YYYY',
   dateFormat: 'dddd, Do MMMM YYYY',
   siteDescription:
-    'Sysadmin di bank terbesar di Indonesia, software developer, dan technology enthusiast. Catatan teknis seputar enterprise infrastructure, arsitektur sistem, Linux, dan homelab.',
-  siteKeywords: 'Steven Lavinske, Sysadmin, Systems Administrator, Software Engineer, System Architecture, Linux, Homelab, Enterprise Infrastructure, Indonesia',
+    'Sysadmin dan technology enthusiast dengan fokus pada Enterprise Infrastructure dan Networking, serta mengeksplorasi teknologi otomasi dan agentic tools.',
+  siteKeywords: 'Steven Lavinske, Sysadmin, Enterprise Infrastructure, Networking, Automation, Agentic Tools, Linux, Homelab, Indonesia',
   siteRss: '/rss.xml',
   googleAnalyticsID: 'UA-42068444-1',
   postDefaultCategoryID: 'Tech',
