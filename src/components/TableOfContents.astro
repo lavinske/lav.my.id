@@ -1,0 +1,146 @@
+---
+interface HeadingItem {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: HeadingItem[];
+}
+
+const { headings = [] } = Astro.props;
+// Filter for H2 and H3 headings
+const filtered = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+{filtered.length >= 2 && (
+  <nav class="table-of-contents" aria-label="Daftar Isi Artikel">
+    <details open class="toc-details">
+      <summary class="toc-summary">
+        <span class="toc-title">
+          <svg class="toc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="8" y1="6" x2="21" y2="6"></line>
+            <line x1="8" y1="12" x2="21" y2="12"></line>
+            <line x1="8" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+          </svg>
+          Daftar Isi
+        </span>
+        <span class="toc-toggle-indicator">▾</span>
+      </summary>
+      <ul class="toc-list">
+        {filtered.map((heading) => (
+          <li class={`toc-item depth-${heading.depth}`}>
+            <a href={`#${heading.slug}`}>{heading.text}</a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  </nav>
+)}
+
+<style lang="scss">
+  .table-of-contents {
+    margin: 2rem 0;
+    padding: 1rem 1.25rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #2b5b84;
+    border-radius: 8px;
+    font-size: 0.95rem;
+
+    .toc-details {
+      summary {
+        list-style: none;
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &::-webkit-details-marker {
+          display: none;
+        }
+
+        .toc-title {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-weight: 700;
+          color: #1e293b;
+          font-size: 1rem;
+        }
+
+        .toc-icon {
+          stroke: #2b5b84;
+        }
+
+        .toc-toggle-indicator {
+          font-size: 0.9rem;
+          color: #64748b;
+          transition: transform 0.2s ease;
+        }
+      }
+
+      &[open] summary .toc-toggle-indicator {
+        transform: rotate(180deg);
+      }
+    }
+
+    .toc-list {
+      margin: 0.75rem 0 0 0;
+      padding: 0;
+      list-style: none;
+
+      .toc-item {
+        margin: 0.35rem 0;
+        line-height: 1.4;
+
+        &.depth-3 {
+          padding-left: 1.25rem;
+          font-size: 0.9rem;
+        }
+
+        a {
+          color: #475569;
+          text-decoration: none;
+          transition: color 0.15s ease;
+
+          &:hover {
+            color: #2b5b84;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  :global(.dark) .table-of-contents {
+    background: #192530;
+    border-color: #2b3b49;
+    border-left-color: #88c0d0;
+
+    .toc-details summary .toc-title {
+      color: #f1f5f9;
+    }
+
+    .toc-details summary .toc-icon {
+      stroke: #88c0d0;
+    }
+
+    .toc-details summary .toc-toggle-indicator {
+      color: #94a3b8;
+    }
+
+    .toc-list .toc-item a {
+      color: #94a3b8;
+
+      &:hover {
+        color: #88c0d0;
+      }
+    }
+  }
+</style>

@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import UserInfo from '../components/UserInfo.astro';
 import PostTags from '../components/PostTags.astro';
 import Comments from '../components/Comments.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import config from '../config';
 import { getAllContent, resolveThumbnail, getReadingTime } from '../utils/posts';
 import moment from 'moment';
@@ -22,6 +24,8 @@ const { Content } = entry;
 const { frontmatter } = entry;
 const isPost = frontmatter.template === 'post';
 const thumbnail = resolveThumbnail(frontmatter.thumbnail);
+const ogImage = isPost ? `/og/${frontmatter.slug}.png` : thumbnail;
+const headings = typeof entry.getHeadings === 'function' ? await entry.getHeadings() : [];
 const date = moment.utc(frontmatter.date).locale('id').format(config.dateFormat);
 const readingTime = getReadingTime(entry);
 const twitterShare = `https://twitter.com/share?text=${encodeURIComponent(frontmatter.title)}&url=${config.siteUrl}/${frontmatter.slug}/`;
@@ -29,7 +33,7 @@ const twitterShare = `https://twitter.com/share?text=${encodeURIComponent(frontm
 <Layout
   title={frontmatter.title}
   description={frontmatter.description}
-  image={thumbnail}
+  image={ogImage}
   article={isPost}
   publishDate={frontmatter.date}
   tags={frontmatter.tags}
@@ -62,9 +66,11 @@ const twitterShare = `https://twitter.com/share?text=${encodeURIComponent(frontm
       </header>
 
       <div class="post">
+        <TableOfContents headings={headings} />
         <Content />
       </div>
     </article>
+    <RelatedPosts currentSlug={frontmatter.slug} tags={frontmatter.tags} categories={frontmatter.categories} />
     <UserInfo />
     <div class="container">
       <Comments />
