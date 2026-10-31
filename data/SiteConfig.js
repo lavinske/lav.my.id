@@ -9,8 +9,8 @@ const config = {
   dateFromFormat: 'dd MM YYYY',
   dateFormat: 'dddd, Do MMMM YYYY',
   siteDescription:
-    'Systems Administrator di bank swasta terbesar di Indonesia, software developer, dan technology enthusiast. Catatan teknis seputar enterprise infrastructure, arsitektur sistem, Linux, dan homelab.',
-  siteKeywords: 'Steven Lavinske, Systems Administrator, Software Engineer, System Architecture, Linux, Homelab, Enterprise Infrastructure, Indonesia',
+    'Sysadmin di bank terbesar di Indonesia, software developer, dan technology enthusiast. Catatan teknis seputar enterprise infrastructure, arsitektur sistem, Linux, dan homelab.',
+  siteKeywords: 'Steven Lavinske, Sysadmin, Systems Administrator, Software Engineer, System Architecture, Linux, Homelab, Enterprise Infrastructure, Indonesia',
   siteRss: '/rss.xml',
   googleAnalyticsID: 'UA-42068444-1',
   postDefaultCategoryID: 'Tech',
