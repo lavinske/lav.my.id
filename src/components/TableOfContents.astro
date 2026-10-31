@@ -7,107 +7,203 @@ interface HeadingItem {
 
 interface Props {
   headings: HeadingItem[];
+  mobile?: boolean;
 }
 
-const { headings = [] } = Astro.props;
-// Filter for H2 and H3 headings
+const { headings = [], mobile = false } = Astro.props;
 const filtered = headings.filter((h) => h.depth === 2 || h.depth === 3);
 ---
 
 {filtered.length >= 2 && (
-  <nav class="table-of-contents" aria-label="Daftar Isi Artikel">
-    <details open class="toc-details">
-      <summary class="toc-summary">
-        <span class="toc-title">
-          <svg class="toc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="8" y1="6" x2="21" y2="6"></line>
-            <line x1="8" y1="12" x2="21" y2="12"></line>
-            <line x1="8" y1="18" x2="21" y2="18"></line>
-            <line x1="3" y1="6" x2="3.01" y2="6"></line>
-            <line x1="3" y1="12" x2="3.01" y2="12"></line>
-            <line x1="3" y1="18" x2="3.01" y2="18"></line>
-          </svg>
-          Daftar Isi
-        </span>
-        <span class="toc-toggle-indicator">▾</span>
-      </summary>
-      <ul class="toc-list">
+  mobile ? (
+    <nav class="toc-mobile" aria-label="Daftar Isi">
+      <details class="toc-mobile-details">
+        <summary class="toc-mobile-summary">
+          <span class="toc-mobile-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="8" y1="6" x2="21" y2="6"></line>
+              <line x1="8" y1="12" x2="21" y2="12"></line>
+              <line x1="8" y1="18" x2="21" y2="18"></line>
+              <line x1="3" y1="6" x2="3.01" y2="6"></line>
+              <line x1="3" y1="12" x2="3.01" y2="12"></line>
+              <line x1="3" y1="18" x2="3.01" y2="18"></line>
+            </svg>
+            Daftar Isi
+          </span>
+          <span class="toc-caret">▾</span>
+        </summary>
+        <ul class="toc-mobile-list">
+          {filtered.map((heading) => (
+            <li class={`toc-item depth-${heading.depth}`}>
+              <a href={`#${heading.slug}`}>{heading.text}</a>
+            </li>
+          ))}
+        </ul>
+      </details>
+    </nav>
+  ) : (
+    <nav class="toc-sidebar" aria-label="Daftar Isi Halaman">
+      <div class="toc-header">
+        <span class="toc-sidebar-title">Daftar Isi</span>
+      </div>
+      <ul class="toc-sidebar-list">
         {filtered.map((heading) => (
-          <li class={`toc-item depth-${heading.depth}`}>
-            <a href={`#${heading.slug}`}>{heading.text}</a>
+          <li class={`toc-sidebar-item depth-${heading.depth}`}>
+            <a href={`#${heading.slug}`} class="toc-link" data-slug={heading.slug}>
+              {heading.text}
+            </a>
           </li>
         ))}
       </ul>
-    </details>
-  </nav>
+    </nav>
+  )
 )}
 
+<script is:inline>
+  (function() {
+    const links = document.querySelectorAll('.toc-sidebar .toc-link');
+    if (!links.length) return;
+
+    const headingEls = [];
+    links.forEach((link) => {
+      const slug = link.getAttribute('data-slug');
+      const el = document.getElementById(slug);
+      if (el) headingEls.push({ link, el });
+    });
+
+    if (!headingEls.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            links.forEach((l) => l.classList.remove('active'));
+            const match = headingEls.find((h) => h.el === entry.target);
+            if (match) match.link.classList.add('active');
+          }
+        });
+      },
+      { rootMargin: '-80px 0% -60% 0%', threshold: 0 }
+    );
+
+    headingEls.forEach((h) => observer.observe(h.el));
+  })();
+</script>
+
 <style lang="scss">
-  .table-of-contents {
-    margin: 2rem 0;
-    padding: 1rem 1.25rem;
+  // Desktop Right Sidebar TOC (Astro Docs style)
+  .toc-sidebar {
+    padding: 0.5rem 0 1rem;
+    font-size: 0.85rem;
+
+    .toc-header {
+      margin-bottom: 0.75rem;
+
+      .toc-sidebar-title {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #64748b;
+      }
+    }
+
+    .toc-sidebar-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-left: 1px solid #e2e8f0;
+
+      .toc-sidebar-item {
+        margin: 0;
+        line-height: 1.45;
+
+        .toc-link {
+          display: block;
+          padding: 0.35rem 0 0.35rem 0.85rem;
+          color: #64748b;
+          text-decoration: none;
+          border-left: 2px solid transparent;
+          margin-left: -1px;
+          transition: all 0.15s ease;
+
+          &:hover {
+            color: #2b5b84;
+            border-left-color: #2b5b84;
+          }
+
+          &.active {
+            color: #2b5b84;
+            font-weight: 600;
+            border-left-color: #2b5b84;
+          }
+        }
+
+        &.depth-3 .toc-link {
+          padding-left: 1.5rem;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  // Mobile Inline TOC
+  .toc-mobile {
+    margin: 1.5rem 0;
+    padding: 0.75rem 1rem;
     background: #f8fafc;
     border: 1px solid #e2e8f0;
-    border-left: 4px solid #2b5b84;
     border-radius: 8px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 
-    .toc-details {
+    .toc-mobile-details {
       summary {
         list-style: none;
         cursor: pointer;
-        user-select: none;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        user-select: none;
 
         &::-webkit-details-marker {
           display: none;
         }
 
-        .toc-title {
+        .toc-mobile-title {
           display: flex;
           align-items: center;
           gap: 0.5rem;
-          font-weight: 700;
+          font-weight: 600;
           color: #1e293b;
-          font-size: 1rem;
         }
 
-        .toc-icon {
-          stroke: #2b5b84;
-        }
-
-        .toc-toggle-indicator {
-          font-size: 0.9rem;
+        .toc-caret {
           color: #64748b;
           transition: transform 0.2s ease;
         }
       }
 
-      &[open] summary .toc-toggle-indicator {
+      &[open] summary .toc-caret {
         transform: rotate(180deg);
       }
     }
 
-    .toc-list {
-      margin: 0.75rem 0 0 0;
-      padding: 0;
+    .toc-mobile-list {
       list-style: none;
+      margin: 0.75rem 0 0;
+      padding: 0;
 
       .toc-item {
         margin: 0.35rem 0;
-        line-height: 1.4;
 
         &.depth-3 {
-          padding-left: 1.25rem;
-          font-size: 0.9rem;
+          padding-left: 1rem;
+          font-size: 0.85rem;
         }
 
         a {
           color: #475569;
           text-decoration: none;
-          transition: color 0.15s ease;
 
           &:hover {
             color: #2b5b84;
@@ -118,28 +214,50 @@ const filtered = headings.filter((h) => h.depth === 2 || h.depth === 3);
     }
   }
 
-  :global(.dark) .table-of-contents {
-    background: #192530;
-    border-color: #2b3b49;
-    border-left-color: #88c0d0;
+  // Dark Theme
+  :global(.dark) {
+    .toc-sidebar {
+      .toc-header .toc-sidebar-title {
+        color: #94a3b8;
+      }
 
-    .toc-details summary .toc-title {
-      color: #f1f5f9;
+      .toc-sidebar-list {
+        border-left-color: #243442;
+
+        .toc-sidebar-item .toc-link {
+          color: #94a3b8;
+
+          &:hover {
+            color: #88c0d0;
+            border-left-color: #88c0d0;
+          }
+
+          &.active {
+            color: #88c0d0;
+            border-left-color: #88c0d0;
+          }
+        }
+      }
     }
 
-    .toc-details summary .toc-icon {
-      stroke: #88c0d0;
-    }
+    .toc-mobile {
+      background: #192530;
+      border-color: #2b3b49;
 
-    .toc-details summary .toc-toggle-indicator {
-      color: #94a3b8;
-    }
+      .toc-mobile-details summary .toc-mobile-title {
+        color: #f1f5f9;
+      }
 
-    .toc-list .toc-item a {
-      color: #94a3b8;
+      .toc-mobile-details summary .toc-caret {
+        color: #94a3b8;
+      }
 
-      &:hover {
-        color: #88c0d0;
+      .toc-mobile-list .toc-item a {
+        color: #94a3b8;
+
+        &:hover {
+          color: #88c0d0;
+        }
       }
     }
   }

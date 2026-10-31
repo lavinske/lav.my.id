@@ -39,37 +39,48 @@ const twitterShare = `https://twitter.com/share?text=${encodeURIComponent(frontm
   tags={frontmatter.tags}
 >
   {isPost ? (
-    <article class="single container">
-      <header class={`single-header ${!thumbnail ? 'no-thumbnail' : ''}`}>
-        {thumbnail && (
-          <img src={thumbnail} alt={frontmatter.title} class="gatsby-image-wrapper" style="width: 150px; height: 150px; object-fit: contain; margin-bottom: 0;" />
-        )}
-        <div class="flex">
-          <h1>{frontmatter.title}</h1>
-          <div class="post-meta">
-            <a href="/saya/">
-              <img src="/images/maxine.jpg" class="avatar-small" alt="Maxine" />
-            </a>
-            <time class="date">{date}</time>/
-            <span class="read-time">{readingTime}</span>/
-            <a
-              class="twitter-link"
-              href={twitterShare}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Bagikan
-            </a>
+    <div class="post-layout-container">
+      <article class="single single-post-main">
+        <header class={`single-header ${!thumbnail ? 'no-thumbnail' : ''}`}>
+          {thumbnail && (
+            <img src={thumbnail} alt={frontmatter.title} class="gatsby-image-wrapper" style="width: 150px; height: 150px; object-fit: contain; margin-bottom: 0;" />
+          )}
+          <div class="flex">
+            <h1>{frontmatter.title}</h1>
+            <div class="post-meta">
+              <a href="/saya/">
+                <img src="/images/maxine.jpg" class="avatar-small" alt="Maxine" />
+              </a>
+              <time class="date">{date}</time>/
+              <span class="read-time">{readingTime}</span>/
+              <a
+                class="twitter-link"
+                href={twitterShare}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Bagikan
+              </a>
+            </div>
+            <PostTags tags={frontmatter.tags} />
           </div>
-          <PostTags tags={frontmatter.tags} />
-        </div>
-      </header>
+        </header>
 
-      <div class="post">
-        <TableOfContents headings={headings} />
-        <Content />
-      </div>
-    </article>
+        <div class="mobile-toc-wrapper">
+          <TableOfContents headings={headings} mobile />
+        </div>
+
+        <div class="post">
+          <Content />
+        </div>
+      </article>
+
+      {headings.filter((h) => h.depth === 2 || h.depth === 3).length >= 2 && (
+        <aside class="desktop-toc-sidebar" aria-label="Daftar Isi Halaman">
+          <TableOfContents headings={headings} />
+        </aside>
+      )}
+    </div>
     <RelatedPosts currentSlug={frontmatter.slug} tags={frontmatter.tags} categories={frontmatter.categories} />
     <UserInfo />
     <div class="container">

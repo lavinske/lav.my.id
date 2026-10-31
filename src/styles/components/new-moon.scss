@@ -37,34 +37,38 @@ pre.language-terminal code.language-terminal {
 }
 
 code[class*='language-'],
-pre[class*='language-'],
-pre code {
+pre[class*='language-'] {
   font-family: $code-font-family;
-  font-size: 13px;
+  font-size: 13.5px;
   color: $code-font-color;
   direction: ltr;
   text-align: left;
-  white-space: pre-wrap;
-  word-spacing: normal;
-  word-break: normal;
-  line-height: 1.7;
+  line-height: 1.6;
   font-weight: 400;
-  margin: 2rem 0;
   tab-size: 2;
   hyphens: none;
-  border-radius: $border-radius;
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
 /* Code blocks */
+pre {
+  margin: 1.5rem 0;
+  border-radius: $border-radius;
+  overflow-x: auto;
 
-pre code {
-  display: block;
-  padding: 1.5rem;
-  overflow: auto;
-  background-color: #333;
-  border: 0;
-  box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.15);
+  code {
+    font-family: $code-font-family;
+    font-size: 13.5px;
+    line-height: 1.6;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    white-space: pre;
+    word-break: normal;
+    word-wrap: normal;
+  }
 }
 
 // Keyboard input

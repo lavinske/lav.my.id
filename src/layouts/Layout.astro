@@ -167,14 +167,32 @@ const jsonLd = article
         updateProgress();
       }
 
-      // 2. Interactive Copy Code Buttons on all <pre> elements
+      // 2. Interactive Code Block Header & Copy Button on all <pre> elements
       document.querySelectorAll('pre').forEach((pre) => {
         if (pre.parentNode.classList.contains('code-block-wrapper')) return;
 
         const wrapper = document.createElement('div');
         wrapper.className = 'code-block-wrapper';
         pre.parentNode.insertBefore(wrapper, pre);
-        wrapper.appendChild(pre);
+
+        // Detect language from data-language, class, or default
+        let lang = pre.getAttribute('data-language') || '';
+        if (!lang) {
+          const code = pre.querySelector('code');
+          if (code && code.className) {
+            const match = code.className.match(/language-(\w+)/);
+            if (match) lang = match[1];
+          }
+        }
+        if (!lang) lang = 'code';
+
+        const header = document.createElement('div');
+        header.className = 'code-block-header';
+
+        const langSpan = document.createElement('span');
+        langSpan.className = 'code-block-lang';
+        langSpan.textContent = lang;
+        header.appendChild(langSpan);
 
         const btn = document.createElement('button');
         btn.className = 'copy-code-btn';
@@ -198,7 +216,9 @@ const jsonLd = article
           }
         });
 
-        wrapper.appendChild(btn);
+        header.appendChild(btn);
+        wrapper.appendChild(header);
+        wrapper.appendChild(pre);
       });
     </script>
   </body>
