@@ -22,7 +22,7 @@ const { posts, simple } = Astro.props;
       <a href={slug}>
         <div class="each">
           {thumbnail ? (
-            <img src={thumbnail} alt={title} class="gatsby-image-wrapper" loading="lazy" decoding="async" width="50" height="50" style="width: 50px; height: 50px; object-fit: contain; margin-bottom: 0;" />
+            <img src={thumbnail} alt="" class="gatsby-image-wrapper" loading="lazy" decoding="async" width="50" height="50" style="width: 50px; height: 50px; object-fit: contain; margin-bottom: 0;" />
           ) : (
             <div />
           )}
