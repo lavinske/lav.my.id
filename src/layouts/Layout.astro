@@ -220,7 +220,8 @@ const jsonLd = article
               }
             }, 2000);
           } catch (e) {
-            console.error(e);
+            // Silently fail if reading progress tracking unavailable (optional enhancement)
+            // console.error(e);
           }
         });
 
