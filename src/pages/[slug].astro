@@ -42,7 +42,7 @@ const twitterShare = `https://twitter.com/share?text=${encodeURIComponent(frontm
       <article class="single container">
         <header class={`single-header ${!thumbnail ? 'no-thumbnail' : ''}`}>
             {thumbnail && (
-            <img src={thumbnail} alt={frontmatter.title} class="gatsby-image-wrapper" loading="lazy" decoding="async" width="150" height="150" style="width: 150px; height: 150px; object-fit: contain; margin-bottom: 0;" />
+            <img src={thumbnail} alt="" class="gatsby-image-wrapper" loading="lazy" decoding="async" width="150" height="150" style="width: 150px; height: 150px; object-fit: contain; margin-bottom: 0;" />
           )}
           <div class="flex">
             <h1>{frontmatter.title}</h1>

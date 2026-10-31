@@ -25,4 +25,4 @@
     # Adding a sha256 hash here would make browsers IGNORE 'unsafe-inline' and break them.
     # Upgrade path: move those 4 page scripts to /public/scripts/, then hash the 2 remaining
     # inline theme scripts and drop 'unsafe-inline'.
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; frame-src https://utteranc.es; connect-src 'self' https://webmention.io; object-src 'none'; base-uri 'self'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://utteranc.es; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; frame-src https://utteranc.es; connect-src 'self' https://webmention.io; object-src 'none'; base-uri 'self'"

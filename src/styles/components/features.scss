@@ -160,7 +160,16 @@ article h3,
       margin: 0 !important;
       border: none !important;
     }
+
   }
+}
+
+// Override Shiki github-dark comment token #6A737D (2.9:1 on #24292e) with #959da5 (5.3:1) for WCAG AA.
+// Unscoped on purpose: .code-block-wrapper is added by JS at runtime, so scoping it there
+// would leave the colour failing until that script runs.
+pre.astro-code span[style*="color:#6A737D"],
+pre.astro-code span[style*="color:#6a737d"] {
+  color: #959da5 !important;
 }
 
 .dark .code-block-wrapper {
