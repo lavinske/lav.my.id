@@ -1,6 +1,8 @@
 # lav.my.id
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Netlify Status](https://api.netlify.com/api/v1/badges/61bc2cd7-6d96-4d3b-ab5f-78b1ccb2d8f9/deploy-status)](https://app.netlify.com/sites/lavinske/deploys) [![Node.js](https://img.shields.io/badge/Node.js-24%20LTS-68a063.svg)](https://nodejs.org/) [![Astro](https://img.shields.io/badge/Astro-5%2F7-bc52ee.svg)](https://astro.build)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Netlify Status](https://api.netlify.com/api/v1/badges/61bc2cd7-6d96-4d3b-ab5f-78b1ccb2d8f9/deploy-status)](https://app.netlify.com/sites/lavinske/deploys) [![Node.js](https://img.shields.io/badge/Node.js-24%20LTS-68a063.svg)](https://nodejs.org/) [![Astro](https://img.shields.io/badge/Astro-7-bc52ee.svg)](https://astro.build)
+
+[![PageSpeed Mobile](https://img.shields.io/badge/PageSpeed%20Mobile-100%2F100-00C853.svg)](https://pagespeed.web.dev/analysis/https-lav-my-id/r76072k4es?form_factor=mobile) [![PageSpeed Desktop](https://img.shields.io/badge/PageSpeed%20Desktop-100%2F100-00C853.svg)](https://pagespeed.web.dev/analysis/https-lav-my-id/r76072k4es?form_factor=desktop) [![Accessibility](https://img.shields.io/badge/Accessibility-100%2F100-00C853.svg)](https://pagespeed.web.dev/analysis/https-lav-my-id/r76072k4es) [![Best Practices](https://img.shields.io/badge/Best%20Practices-96%2F100-4CAF50.svg)](https://pagespeed.web.dev/analysis/https-lav-my-id/r76072k4es) [![SEO](https://img.shields.io/badge/SEO-100%2F100-00C853.svg)](https://pagespeed.web.dev/analysis/https-lav-my-id/r76072k4es)
 
 Personal website, technical journal, and homelab documentation hub of **Steven Lavinske** ([lav.my.id](https://lav.my.id)).
 
@@ -22,11 +24,14 @@ Personal website, technical journal, and homelab documentation hub of **Steven L
 
 ## 💡 Engineering Highlights & Skills
 
-- **Zero-Runtime Overhead**: Fully static pre-rendered HTML with zero client-side JavaScript overhead by default, achieving sub-second load times and 100/100 Lighthouse metrics.
+- **Perfect PageSpeed Score**: Achieves **100/100 Performance** on both mobile and desktop (verified Oct 31, 2026), with excellent Core Web Vitals: FCP 0.2s, LCP 0.2s, TBT 0ms, CLS 0.001.
+- **Zero-Runtime Overhead**: Fully static pre-rendered HTML with zero client-side JavaScript overhead by default, achieving sub-second load times.
+- **Optimized Asset Pipeline**: Latin-only font subsets (-270KB), sharp-compressed images (-596KB / 71% reduction), 2x variants for retina displays, lazy-loading with explicit dimensions.
 - **Private Content Architecture**: Decoupled content pipeline utilizing a secure Git submodule (`content.lav.my.id`) protected by Netlify SSH Deploy Keys—keeping raw markdown and drafts private while the application shell remains open-source.
 - **Modern Typography & Zero Network Leaks**: All web fonts (Roboto, Montserrat, Roboto Mono) and icons are bundled locally into static assets via Fontsource, eliminating third-party tracking and latency.
 - **Comprehensive Technical SEO**: Auto-generated Schema.org structured data, dynamic OpenGraph/Twitter social cards, multi-taxonomy indexing (Categories, Tags), canonical URLs, and RSS feeds.
 - **Sub-2s Build Time**: Migration from legacy Webpack 4 / Gatsby 2 to Astro + Vite reduced compilation time from 25+ seconds down to **1.5 seconds** with **0 build vulnerabilities**.
+- **Security-First Headers**: CSP, COOP, HSTS with preload, X-Frame-Options, comprehensive Permissions-Policy via Netlify edge configuration.
 
 ---
 
