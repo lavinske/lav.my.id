@@ -6,7 +6,14 @@ const pathname = Astro.url.pathname;
   <div class="nav-container">
     <div class="brand">
       <a href="/">
-        <img src="/logos/hd_smol.png" class="favicon" alt="My Logo" />
+        <img
+          src="/logos/hd_logo.png"
+          srcset="/logos/hd_logo.png 1x, /logos/hd_logo@2x.png 2x"
+          width="35"
+          height="35"
+          class="favicon"
+          alt="My Logo"
+        />
         <span class="text">{config.siteTitle}</span>
       </a>
     </div>
