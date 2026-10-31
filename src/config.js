@@ -29,7 +29,7 @@ export const config = {
       link: '/link/',
     },
   ],
-  themeColor: '#0094d6',
+  themeColor: '#2B5B84',
   backgroundColor: '#ffffff',
 };
 
