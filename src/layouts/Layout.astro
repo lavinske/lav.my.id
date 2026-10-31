@@ -2,12 +2,13 @@
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import config from '../config';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-import '@fontsource/montserrat/600.css';
-import '@fontsource/montserrat/700.css';
-import '@fontsource/roboto-mono/400.css';
+// Latin-only subsets to reduce bundle by ~350KB (remove cyrillic, cyrillic-ext, greek, vietnamese)
+import '@fontsource/roboto/latin-400.css';
+import '@fontsource/roboto/latin-500.css';
+import '@fontsource/roboto/latin-700.css';
+import '@fontsource/montserrat/latin-600.css';
+import '@fontsource/montserrat/latin-700.css';
+import '@fontsource/roboto-mono/latin-400.css';
 import '../styles/main.scss';
 
 interface Props {
@@ -88,9 +89,9 @@ const jsonLd = article
     <link rel="pingback" href="https://webmention.io/lav.my.id/xmlrpc" />
     <meta name="theme-color" content={config.themeColor} />
 
-    <!-- Preload critical web fonts -->
-    <link rel="preload" href="/fonts/roboto-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Resource hints for external services -->
+    <link rel="dns-prefetch" href="https://utteranc.es" />
+    <link rel="preconnect" href="https://webmention.io" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:site_name" content={config.siteTitle} />
