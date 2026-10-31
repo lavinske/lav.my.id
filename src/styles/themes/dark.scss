@@ -86,7 +86,10 @@ $comment:#ccc;
     }
 
     h2 {
-      color: $attribute;
+      // Was $attribute (#ffd479, Prism syntax-highlight orange) -- leaked from
+      // code-token styling, off brand palette. Nordic frost cyan matches tags/
+      // accents elsewhere and gives 8.1:1 contrast on #202020 (WCAG AAA).
+      color: #88c0d0;
       border: none;
     }
   }
