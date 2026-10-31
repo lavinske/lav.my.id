@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Netlify Status](https://api.netlify.com/api/v1/badges/61bc2cd7-6d96-4d3b-ab5f-78b1ccb2d8f9/deploy-status)](https://app.netlify.com/sites/lavinske/deploys) [![Node.js](https://img.shields.io/badge/Node.js-24%20LTS-68a063.svg)](https://nodejs.org/) [![Astro](https://img.shields.io/badge/Astro-7-bc52ee.svg)](https://astro.build)
 
-[![PageSpeed Mobile](https://img.shields.io/badge/PageSpeed%20Mobile-100%2F100-00C853.svg)](https://pagespeed.web.dev/analysis/https-lav-my-id/r76072k4es?form_factor=mobile) [![PageSpeed Desktop](https://img.shields.io/badge/PageSpeed%20Desktop-100%2F100-00C853.svg)](https://pagespeed.web.dev/analysis/https-lav-my-id/r76072k4es?form_factor=desktop) [![Accessibility](https://img.shields.io/badge/Accessibility-100%2F100-00C853.svg)](https://pagespeed.web.dev/analysis/https-lav-my-id/r76072k4es) [![Best Practices](https://img.shields.io/badge/Best%20Practices-96%2F100-4CAF50.svg)](https://pagespeed.web.dev/analysis/https-lav-my-id/r76072k4es) [![SEO](https://img.shields.io/badge/SEO-100%2F100-00C853.svg)](https://pagespeed.web.dev/analysis/https-lav-my-id/r76072k4es)
+[![PageSpeed Mobile](https://img.shields.io/badge/PageSpeed%20Mobile-99%2F100-00C853.svg)](https://pagespeed.web.dev/analysis/https-lav-my-id/oxeozz8ns4?form_factor=mobile) [![PageSpeed Desktop](https://img.shields.io/badge/PageSpeed%20Desktop-100%2F100-00C853.svg)](https://pagespeed.web.dev/analysis/https-lav-my-id/oxeozz8ns4?form_factor=desktop) [![Accessibility](https://img.shields.io/badge/Accessibility-100%2F100-00C853.svg)](https://pagespeed.web.dev/analysis/https-lav-my-id/oxeozz8ns4) [![Best Practices](https://img.shields.io/badge/Best%20Practices-100%2F100-00C853.svg)](https://pagespeed.web.dev/analysis/https-lav-my-id/oxeozz8ns4) [![SEO](https://img.shields.io/badge/SEO-100%2F100-00C853.svg)](https://pagespeed.web.dev/analysis/https-lav-my-id/oxeozz8ns4)
 
 Personal website, technical journal, and homelab documentation hub of **Steven Lavinske** ([lav.my.id](https://lav.my.id)).
 
@@ -24,7 +24,7 @@ Personal website, technical journal, and homelab documentation hub of **Steven L
 
 ## 💡 Engineering Highlights & Skills
 
-- **Perfect PageSpeed Score**: Achieves **100/100 Performance** on both mobile and desktop (verified Oct 31, 2026), with excellent Core Web Vitals: FCP 0.2s, LCP 0.2s, TBT 0ms, CLS 0.001.
+- **Perfect PageSpeed Scores**: **100/100/100/100** on desktop and **99/100/100/100** on mobile (verified Oct 31, 2026). Core Web Vitals: FCP 0.2s, LCP 0.2s, TBT 0ms, CLS 0.001 (desktop).
 - **Zero-Runtime Overhead**: Fully static pre-rendered HTML with zero client-side JavaScript overhead by default, achieving sub-second load times.
 - **Optimized Asset Pipeline**: Latin-only font subsets (-270KB), sharp-compressed images (-596KB / 71% reduction), 2x variants for retina displays, lazy-loading with explicit dimensions.
 - **Private Content Architecture**: Decoupled content pipeline utilizing a secure Git submodule (`content.lav.my.id`) protected by Netlify SSH Deploy Keys—keeping raw markdown and drafts private while the application shell remains open-source.
