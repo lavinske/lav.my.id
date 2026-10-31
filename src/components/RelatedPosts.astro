@@ -42,7 +42,7 @@ const related = scored.slice(0, 3).map((item) => item.post);
 {related.length > 0 && (
   <div class="container front-page related-container">
     <section class="section">
-      <h2>Baca Selanjutnya</h2>
+      <h2 class="section-title">Baca Selanjutnya</h2>
       <div class="posts simple">
         {related.map((post) => {
           const slug = `/${post.frontmatter.slug}/`;
@@ -52,15 +52,15 @@ const related = scored.slice(0, 3).map((item) => item.post);
           const readTime = getReadingTime(post);
 
           return (
-            <a href={slug}>
+            <a href={slug} class="related-post-link">
               <div class="each">
                 {thumbnail ? (
-                  <img src={thumbnail} alt={title} class="gatsby-image-wrapper" style="width: 50px; height: 50px; object-fit: contain; margin-bottom: 0;" />
+                  <img src={thumbnail} alt={title} class="gatsby-image-wrapper" style="width: 48px; height: 48px; object-fit: contain; margin-bottom: 0;" />
                 ) : (
                   <div />
                 )}
                 <div class="each-list-item">
-                  <h2>{title}</h2>
+                  <h3 class="post-title">{title}</h3>
                   <div class="datetime">{date} &bull; {readTime}</div>
                 </div>
               </div>
@@ -81,33 +81,91 @@ const related = scored.slice(0, 3).map((item) => item.post);
     .section {
       margin-bottom: 1.5rem;
 
-      h2 {
-        font-size: 1.3rem;
+      .section-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.35rem;
         font-weight: 700;
-        margin-bottom: 1rem;
-        border-bottom: 2px solid #e2e8f0;
-        padding-bottom: 0.5rem;
+        margin-bottom: 1.25rem;
+        padding-bottom: 0;
+        border-bottom: none !important;
+        color: #0f172a;
       }
     }
 
-    .each-list-item {
-      .datetime {
-        font-size: 0.82rem;
-        color: #64748b;
-        margin-top: 0.25rem;
+    .related-post-link {
+      text-decoration: none;
+      display: block;
+
+      .each {
+        border-bottom: none !important;
+        padding: 0.85rem 0.5rem;
+        border-radius: 8px;
+        transition: background 0.15s ease;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.03);
+
+          .post-title {
+            color: #2b5b84 !important;
+          }
+        }
+      }
+
+      .each-list-item {
+        .post-title {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 1.1rem;
+          font-weight: 600;
+          line-height: 1.4;
+          margin: 0;
+          padding: 0;
+          border-bottom: none !important; // No line between title and meta
+          color: #1e293b;
+          transition: color 0.15s ease;
+        }
+
+        .datetime {
+          font-family: 'Roboto', sans-serif;
+          font-size: 0.825rem;
+          color: #64748b;
+          margin-top: 0.35rem;
+          font-weight: 400;
+        }
       }
     }
   }
 
   :global(.dark) .related-container {
-    border-top-color: #243442;
+    border-top-color: #263544;
 
-    .section h2 {
-      border-bottom-color: #243442;
+    .section .section-title {
+      color: #ffffff;
+      border-bottom: none !important;
     }
 
-    .each-list-item .datetime {
-      color: #94a3b8;
+    .related-post-link {
+      .each {
+        border-bottom: none !important;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.04);
+
+          .post-title {
+            color: #88c0d0 !important;
+          }
+        }
+      }
+
+      .each-list-item {
+        .post-title {
+          color: #f1f5f9;
+          border-bottom: none !important;
+        }
+
+        .datetime {
+          color: #888888;
+        }
+      }
     }
   }
 </style>
