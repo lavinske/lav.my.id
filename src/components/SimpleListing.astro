@@ -14,7 +14,7 @@ const { data } = Astro.props;
       <a href={item.path} target="_blank" rel="noopener noreferrer">
         <div class="each">
           <h2>
-            <img src={imgSrc} alt={item.title} style="width: 28px; height: 28px; object-fit: contain; margin-right: 0.75rem;" />
+            <img src={imgSrc} alt={item.title} loading="lazy" decoding="async" width="28" height="28" style="width: 28px; height: 28px; object-fit: contain; margin-right: 0.75rem;" />
             {item.title}
           </h2>
         </div>

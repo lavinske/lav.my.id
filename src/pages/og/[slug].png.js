@@ -1,7 +1,5 @@
 import sharp from 'sharp';
-import { getAllContent, getReadingTime } from '../../utils/posts';
-import moment from 'moment';
-import 'moment/locale/id';
+import { getAllContent, getReadingTime, formatDateShort } from '../../utils/posts';
 
 export async function getStaticPaths() {
   const all = getAllContent();
@@ -44,7 +42,7 @@ export async function GET({ props }) {
   const { frontmatter } = post;
   const title = frontmatter.title || 'Artikel';
   const category = (frontmatter.categories && frontmatter.categories[0]) || 'Teknologi';
-  const dateStr = frontmatter.date ? moment.utc(frontmatter.date).locale('id').format('Do MMMM YYYY') : '';
+  const dateStr = formatDateShort(frontmatter.date);
   const readTime = getReadingTime(post);
 
   const lines = wrapText(title, 26);

@@ -25,7 +25,7 @@ const pubs = Object.entries(training);
       {pubs.map(([company, certificates]: [string, any]) => (
         <article>
           <h2 class="training-company" id={company.replace(/\s/g, '')}>
-            {logoMap[company] && <img src={logoMap[company]} alt="Lembaga Training" />}
+            {logoMap[company] && <img src={logoMap[company]} alt="Lembaga Training" loading="lazy" decoding="async" width="28" height="28" />}
             {company}
           </h2>
           <ul>

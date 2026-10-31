@@ -1,8 +1,6 @@
 ---
-import moment from 'moment';
-import 'moment/locale/id';
 import config from '../config';
-import { resolveThumbnail } from '../utils/posts';
+import { resolveThumbnail, formatDateId, isNewest } from '../utils/posts';
 
 interface Props {
   posts: any[];
@@ -15,16 +13,16 @@ const { posts, simple } = Astro.props;
   {posts.map((post) => {
     const slug = `/${post.frontmatter.slug}/`;
     const title = post.frontmatter.title;
-    const date = moment.utc(post.frontmatter.date).locale('id').format(config.dateFormat);
+    const date = formatDateId(post.frontmatter.date);
     const thumbnail = resolveThumbnail(post.frontmatter.thumbnail);
     const popular = post.frontmatter.categories?.includes('populer');
-    const newest = moment(post.frontmatter.date) > moment().subtract(1, 'months');
+    const newest = isNewest(post.frontmatter.date);
 
     return (
       <a href={slug}>
         <div class="each">
           {thumbnail ? (
-            <img src={thumbnail} alt={title} class="gatsby-image-wrapper" style="width: 50px; height: 50px; object-fit: contain; margin-bottom: 0;" />
+            <img src={thumbnail} alt={title} class="gatsby-image-wrapper" loading="lazy" decoding="async" width="50" height="50" style="width: 50px; height: 50px; object-fit: contain; margin-bottom: 0;" />
           ) : (
             <div />
           )}

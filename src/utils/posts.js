@@ -1,4 +1,46 @@
-import moment from 'moment';
+/**
+ * Date helpers — zero-dependency replacements for moment.js
+ * Indonesian locale, UTC-based to match original behavior.
+ */
+const dayNames = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+const monthNames = [
+  'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+  'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember',
+];
+
+/** "Senin, 1 Januari 2025" — replaces moment(d).locale('id').format('dddd, Do MMMM YYYY') */
+export function formatDateId(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return '';
+  return `${dayNames[d.getUTCDay()]}, ${d.getUTCDate()} ${monthNames[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+}
+
+/** "1 Januari 2025" — short variant for OG images */
+export function formatDateShort(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return '';
+  return `${d.getUTCDate()} ${monthNames[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+}
+
+/** Is this date less than 30 days ago? Replaces moment().subtract(1, 'months') comparison */
+export function isNewest(dateStr) {
+  if (!dateStr) return false;
+  return new Date(dateStr).getTime() > Date.now() - 30 * 24 * 60 * 60 * 1000;
+}
+
+/** kebab-case — replaces lodash.kebabcase */
+export function kebabCase(str) {
+  if (!str) return '';
+  return str
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_]+/g, '-')
+    .replace(/-+/g, '-');
+}
 
 export function getAllContent() {
   const markdownFiles = import.meta.glob('/content/*.md', { eager: true });
@@ -27,11 +69,6 @@ export function resolveThumbnail(thumb) {
   return thumb.replace(/^\.\/thumbnails\//, '/thumbnails/').replace(/^\.\/images\//, '/images/');
 }
 
-export function formatDate(dateStr) {
-  if (!dateStr) return '';
-  return moment(dateStr).format('Do MMMM YYYY');
-}
-
 export function getReadingTime(entryOrText) {
   let text = '';
   if (typeof entryOrText === 'string') {
@@ -44,9 +81,7 @@ export function getReadingTime(entryOrText) {
     text = entryOrText.body;
   }
 
-  // Remove frontmatter if present
   const body = text.replace(/^---[\s\S]*?---/, '');
-  // Clean markdown tags and code fences
   const clean = body
     .replace(/<[^>]+>/g, ' ')
     .replace(/```[\s\S]*?```/g, ' ')

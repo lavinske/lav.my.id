@@ -1,7 +1,5 @@
 ---
-import { getPosts, resolveThumbnail, getReadingTime } from '../utils/posts';
-import moment from 'moment';
-import 'moment/locale/id';
+import { getPosts, resolveThumbnail, getReadingTime, formatDateId } from '../utils/posts';
 import config from '../config';
 
 interface Props {
@@ -47,7 +45,7 @@ const related = scored.slice(0, 3).map((item) => item.post);
         {related.map((post) => {
           const slug = `/${post.frontmatter.slug}/`;
           const title = post.frontmatter.title;
-          const date = moment.utc(post.frontmatter.date).locale('id').format(config.dateFormat);
+          const date = formatDateId(post.frontmatter.date);
           const thumbnail = resolveThumbnail(post.frontmatter.thumbnail);
           const readTime = getReadingTime(post);
 
@@ -55,7 +53,7 @@ const related = scored.slice(0, 3).map((item) => item.post);
             <a href={slug} class="related-post-link">
               <div class="each">
                 {thumbnail ? (
-                  <img src={thumbnail} alt={title} class="gatsby-image-wrapper" style="width: 48px; height: 48px; object-fit: contain; margin-bottom: 0;" />
+                  <img src={thumbnail} alt={title} class="gatsby-image-wrapper" loading="lazy" decoding="async" width="48" height="48" style="width: 48px; height: 48px; object-fit: contain; margin-bottom: 0;" />
                 ) : (
                   <div />
                 )}
