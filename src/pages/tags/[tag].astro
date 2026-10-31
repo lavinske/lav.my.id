@@ -2,8 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import PostListing from '../../components/PostListing.astro';
 import config from '../../config';
-import { getPosts } from '../../utils/posts';
-import kebabCase from 'lodash.kebabcase';
+import { getPosts, kebabCase } from '../../utils/posts';
 
 export async function getStaticPaths() {
   const posts = getPosts();

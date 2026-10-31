@@ -16,7 +16,7 @@ function remarkImagePaths() {
 }
 
 export default defineConfig({
-  site: 'https://www.lav.my.id',
+  site: 'https://lav.my.id',
   trailingSlash: 'always',
   integrations: [sitemap()],
   markdown: {

@@ -6,9 +6,7 @@ import Comments from '../components/Comments.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
 import config from '../config';
-import { getAllContent, resolveThumbnail, getReadingTime } from '../utils/posts';
-import moment from 'moment';
-import 'moment/locale/id';
+import { getAllContent, resolveThumbnail, getReadingTime, formatDateId } from '../utils/posts';
 
 export async function getStaticPaths() {
   const all = getAllContent();
@@ -26,7 +24,7 @@ const isPost = frontmatter.template === 'post';
 const thumbnail = resolveThumbnail(frontmatter.thumbnail);
 const ogImage = isPost ? `/og/${frontmatter.slug}.png` : thumbnail;
 const headings = typeof entry.getHeadings === 'function' ? await entry.getHeadings() : [];
-const date = moment.utc(frontmatter.date).locale('id').format(config.dateFormat);
+const date = formatDateId(frontmatter.date);
 const readingTime = getReadingTime(entry);
 const twitterShare = `https://twitter.com/share?text=${encodeURIComponent(frontmatter.title)}&url=${config.siteUrl}/${frontmatter.slug}/`;
 ---
@@ -43,14 +41,14 @@ const twitterShare = `https://twitter.com/share?text=${encodeURIComponent(frontm
       <TableOfContents headings={headings} />
       <article class="single container">
         <header class={`single-header ${!thumbnail ? 'no-thumbnail' : ''}`}>
-          {thumbnail && (
-            <img src={thumbnail} alt={frontmatter.title} class="gatsby-image-wrapper" style="width: 150px; height: 150px; object-fit: contain; margin-bottom: 0;" />
+            {thumbnail && (
+            <img src={thumbnail} alt={frontmatter.title} class="gatsby-image-wrapper" loading="lazy" decoding="async" width="150" height="150" style="width: 150px; height: 150px; object-fit: contain; margin-bottom: 0;" />
           )}
           <div class="flex">
             <h1>{frontmatter.title}</h1>
             <div class="post-meta">
               <a href="/saya/">
-                <img src="/images/maxine.jpg" class="avatar-small" alt="Maxine" />
+                <img src="/images/maxine.jpg" class="avatar-small" alt="Maxine" loading="lazy" decoding="async" />
               </a>
               <time class="date">{date}</time>/
               <span class="read-time">{readingTime}</span>/
