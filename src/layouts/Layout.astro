@@ -86,6 +86,10 @@ const jsonLd = article
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap-index.xml" />
     <meta name="theme-color" content={config.themeColor} />
 
+    <!-- Preload critical web fonts -->
+    <link rel="preload" href="/fonts/roboto-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:site_name" content={config.siteTitle} />
     <meta property="og:type" content={article ? 'article' : 'website'} />
@@ -113,8 +117,11 @@ const jsonLd = article
       (function() {
         try {
           const dark = localStorage.getItem('dark');
-          if (dark === 'true') {
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (dark === 'true' || (dark === null && prefersDark)) {
             document.documentElement.classList.add('dark');
+          } else if (dark === 'false') {
+            document.documentElement.classList.add('dark-explicit-light');
           }
         } catch (e) {}
       })();

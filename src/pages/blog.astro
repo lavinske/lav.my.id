@@ -34,6 +34,11 @@ const categories = Array.from(categorySet);
       />
       <div id="filter-count" class="filter-count">{posts.length}</div>
     </div>
+    <noscript>
+      <p style="font-size: 0.85rem; color: #888; margin-top: -0.5rem; margin-bottom: 1.5rem;">
+        * Pencarian interaktif memerlukan JavaScript. Seluruh artikel tercantum di bawah ini.
+      </p>
+    </noscript>
     <div id="post-list-wrapper">
       <PostListing posts={posts} />
     </div>
